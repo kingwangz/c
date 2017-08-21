@@ -34,6 +34,7 @@ void singleticket();
 void multiplayerticketsn();
 void ordermanagement();
 void flightmanagement();
+void flightadd();
 
 int main()
 {
@@ -538,12 +539,48 @@ void tickets(){
 }
 
 void ordermanagement(){
-    
+    char phantom;
+    char a[2];
+    while(1)
+    {
+        printf("(a)Check order\n");
+        printf("(b)Statistics\n");
+        printf("(c)Exit\n");
+        scanf("%s",a);
+        scanf("%c",&phantom);
+        if(a[0]=='a')
+        {singleticket();
+        }
+        else if(a[0]=='b')
+        {multiplayerticketsn();
+        }
+        else if(a[0]=='c')
+        {exit(1);}
+    }
+
 }
 
 
 void flightmanagement(){
-    
+    char phantom;
+    char a[2];
+    while(1)
+    {
+        printf("(a)Flight inquiries\n");
+        printf("(b)Flight add\n");
+        printf("(c)Exit\n");
+        scanf("%s",a);
+        scanf("%c",&phantom);
+        if(a[0]=='a')
+        {filter();
+        }
+        else if(a[0]=='b')
+        {flightadd();
+        }
+        else if(a[0]=='c')
+        {exit(1);}
+    }
+
 }
 
 
@@ -569,5 +606,10 @@ void singleticket(){
 
 
 void multiplayerticketsn(){
+    
+}
+
+
+void flightadd(){
     
 }
