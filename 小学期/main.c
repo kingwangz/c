@@ -17,8 +17,6 @@ void administrator();
 void userlogin();
 void logins();
 void administratorlogin();
-void userinfo();
-void administratorinfo();
 char * userIDverification();
 char * administratorIDverification();
 void userinterface();
@@ -181,28 +179,39 @@ void personal(){
         printf("system error\n");
         exit(1);
     }
-    fprintf(infile,"%s %s %s %s %s %s",ID,name,gender,phone,password,mailbox );
+    fprintf(infile,"%s %s %s %s %s %s",ID,name,gender,phone,password,mailbox);
+    fclose(infile);
 }
 
 
 
 
 void administrator(){
-    char ID[15],name[15],gender[15],phone[15],password[15],mailbox[15],airline[15];
+    char IDA[15],name[15],gender[15],phone[15],password[15],mailbox[15],airline[15],IDF[15];
     int valid=0;
     char phantom;
+    char file[]=".txt";
+    FILE *infile;
     while(valid==0){
-        printf("User ID\n");
+        printf("Administrator ID\n");
         printf("Length 6-10 characters\n");
-        scanf("%s",ID);
+        scanf("%s",IDA);
         scanf("%c",&phantom);
-        if(strlen(ID)>5&&strlen(ID)<11){
+        if(strlen(IDA)>5&&strlen(IDA)<11){
             valid=1;
         }
-        for(int k=0;k<11&&valid==1;k++) {
-            if(ispunct(ID[k])!=0){
+        for(int k=0; k<11 && valid==1 ;) {
+            if(ispunct(IDA[k])!=0){
                 valid=0;
             }
+            k++;
+        }
+        strcpy(IDF, IDA);
+        strcat(IDF, file);
+        infile=fopen(IDF,"r");
+        if (valid==1&&infile!=NULL) {
+            printf("ID already exists, please re-enter\n");
+            valid=0;
         }
         if(valid==1&&phantom==' '){
             valid=0;
@@ -278,7 +287,15 @@ void administrator(){
     }
     printf("Airline\n");
     scanf("%s",airline);
-    administratorinfo();
+    strcpy(IDF, IDA);
+    strcat(IDF, file);
+    infile=fopen(IDF,"a+" );
+    if(infile==NULL){
+        printf("system error\n");
+        exit(1);
+    }
+    fprintf(infile,"%s %s %s %s %s %s %s",IDA,name,gender,phone,password,mailbox,airline);
+    fclose(infile);
 }
 
 
@@ -359,13 +376,6 @@ void administratorlogin(){
 }
 
 
-
-
-
-
-void administratorinfo(){
-    
-}
 
 
 char * userIDverification(){
