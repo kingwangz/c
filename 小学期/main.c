@@ -273,11 +273,20 @@ void logins(){
 
 
 void userlogin(){
+    char ID[15],password[15];
+    printf("Please enter the user ID\n");
+    scanf("%s",ID);
+    printf("Please enter the user password\n");
+    scanf("%s",password);
     
 }
 
 
 
 void administratorlogin(){
-    
+    char ID[15],password[15];
+    printf("Please enter the Administrator ID\n");
+    scanf("%s",ID);
+    printf("Please enter the Administrator password\n");
+    scanf("%s",password);
 }
