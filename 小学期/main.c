@@ -38,8 +38,8 @@ void flightadd();
 
 int main()
 {
-    //registered();
-    logins();
+    registered();
+    //logins();
     return 0;
 }
 
@@ -77,9 +77,11 @@ void registered(){
 
 
 void personal(){
-    char ID[15],name[15],gender[15],phone[15],password[15],mailbox[15];
+    char ID[15],name[15],gender[15],phone[15],password[15],mailbox[15],IDF[15];
     int valid=0;
     char phantom;
+    char file[]=".txt";
+    FILE *infile;
     while(valid==0){
         printf("User ID\n");
         printf("Length 6-10 characters\n");
@@ -92,6 +94,13 @@ void personal(){
             if(ispunct(ID[k])!=0){
                 valid=0;
             }
+        }
+        strcpy(IDF, ID);
+        strcat(IDF, file);
+        infile=fopen(IDF,"r");
+        if (valid==1&&infile!=NULL) {
+            printf("ID already exists, please re-enter\n");
+            valid=0;
         }
         if(valid==1&&phantom==' '){
             valid=0;
@@ -165,7 +174,14 @@ void personal(){
             valid=1;
         }
     }
-    userinfo();
+    strcpy(IDF, ID);
+    strcat(IDF, file);
+    infile=fopen(IDF,"a+" );
+    if(infile==NULL){
+        printf("system error\n");
+        exit(1);
+    }
+    fprintf(infile,"%s %s %s %s %s %s",ID,name,gender,phone,password,mailbox );
 }
 
 
@@ -344,10 +360,6 @@ void administratorlogin(){
 
 
 
-
-void userinfo(){
-    
-}
 
 
 
