@@ -27,6 +27,7 @@ void flightinquiries();
 void recommendation();
 void userinformation();
 void tickets();
+void filter();
 
 int main()
 {
@@ -434,7 +435,33 @@ void administratorinterface(){
 
 
 void flightinquiries(){
-    
+    char phantom;
+    char a[2];
+    while(1)
+    {
+        printf("(a)Model\n");
+        printf("(b)Take off the city\n");
+        printf("(c)Period\n");
+        printf("(d)Flight number\n");
+        printf("(e)Exit\n");
+        scanf("%s",a);
+        scanf("%c",&phantom);
+        if(a[0]=='a')
+        {filter();
+        }
+        else if(a[0]=='b')
+        {filter();
+        }
+        else if(a[0]=='c')
+        {filter();
+        }
+        else if(a[0]=='d')
+        {filter();
+        }
+        else if(a[0]=='e')
+        {exit(1);}
+    }
+
 }
 
 
@@ -449,5 +476,10 @@ void userinformation(){
 
 
 void tickets(){
+    
+}
+
+
+void filter(){
     
 }
