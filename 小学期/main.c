@@ -375,7 +375,9 @@ void userinterface(){
     {
         printf("(a)Flight inquiries\n");
         printf("(b)Popular city recommendation\n");
-        printf("(c)	Exit\n");
+        printf("(c)Personal information\n");
+        printf("(d)Tickets\n");
+        printf("(e)Exit\n");
         scanf("%s",a);
         scanf("%c",&phantom);
         if(a[0]=='a')
@@ -385,6 +387,12 @@ void userinterface(){
         {administratorlogin();
         }
         else if(a[0]=='c')
+        {administratorlogin();
+        }
+        else if(a[0]=='d')
+        {administratorlogin();
+        }
+        else if(a[0]=='e')
         {exit(1);}
     }
     
@@ -400,7 +408,7 @@ void administratorinterface(){
         printf("(a)Order management\n");
         printf("(b)Flight Management\n");
         printf("(c)Personal information\n");
-        printf("(d)	Exit\n");
+        printf("(d)Exit\n");
         scanf("%s",a);
         scanf("%c",&phantom);
         if(a[0]=='a')
