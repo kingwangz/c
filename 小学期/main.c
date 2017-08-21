@@ -60,7 +60,7 @@ void registered(){
             scanf("%s",code);
             scanf("%c",&phantom);
             if(strcmp(code,"kingwang")==0){
-                administrator();
+                   administrator();
             }
             else{
                 printf("Invitation code error\n");
@@ -200,11 +200,11 @@ void administrator(){
         if(strlen(IDA)>5&&strlen(IDA)<11){
             valid=1;
         }
-        for(int k=0; k<11 && valid==1 ;) {
+        IDA[10]=' ';
+        for(int k=0; k<11 && valid==1 ;k++) {
             if(ispunct(IDA[k])!=0){
                 valid=0;
             }
-            k++;
         }
         strcpy(IDF, IDA);
         strcat(IDF, file);
