@@ -28,6 +28,10 @@ void recommendation();
 void userinformation();
 void tickets();
 void filter();
+void record();
+void modification();
+void singleticket();
+void multiplayerticketsn();
 
 int main()
 {
@@ -466,20 +470,93 @@ void flightinquiries(){
 
 
 void recommendation(){
-    
+    char phantom;
+    char a[2];
+    while(1)
+    {
+        printf("(a)Flight price\n");
+        printf("(b)Hot city\n");
+        printf("(c)Exit\n");
+        scanf("%s",a);
+        scanf("%c",&phantom);
+        if(a[0]=='a')
+        {filter();
+        }
+        else if(a[0]=='b')
+        {filter();
+        }
+        else if(a[0]=='c')
+        {exit(1);}
+    }
+
 }
 
 
 void userinformation(){
-    
+    char phantom;
+    char a[2];
+    while(1)
+    {
+        printf("(a)Ticket record\n");
+        printf("(b)Information modification\n");
+        printf("(c)Exit\n");
+        scanf("%s",a);
+        scanf("%c",&phantom);
+        if(a[0]=='a')
+        {record();
+        }
+        else if(a[0]=='b')
+        {modification();
+        }
+        else if(a[0]=='c')
+        {exit(1);}
+    }
 }
 
 
 void tickets(){
+    char phantom;
+    char a[2];
+    while(1)
+    {
+        printf("(a)Single ticket\n");
+        printf("(b)Multiplayer ticketsn\n");
+        printf("(c)Exit\n");
+        scanf("%s",a);
+        scanf("%c",&phantom);
+        if(a[0]=='a')
+        {singleticket();
+        }
+        else if(a[0]=='b')
+        {multiplayerticketsn();
+        }
+        else if(a[0]=='c')
+        {exit(1);}
+    }
+}
+
+
+
+void filter(){
     
 }
 
 
-void filter(){
+void record(){
+    
+}
+
+
+void modification(){
+    
+}
+
+
+void singleticket(){
+    
+}
+
+
+void multiplayerticketsn(){
     
 }
