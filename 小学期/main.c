@@ -19,15 +19,16 @@ void logins();
 void administratorlogin();
 void userinfo();
 void administratorinfo();
-void userIDverification();
-void administratorIDverification();
-void userpasswordverification();
-void administratorpasswordverification();
+char * userIDverification();
+char administratorIDverification();
 
 int main()
 {
     //registered();
-    logins();
+    //logins();
+    char * IDpassword;
+    IDpassword=userIDverification();
+    printf("%s\n",IDpassword);
     return 0;
 }
 
@@ -283,14 +284,23 @@ void logins(){
 void userlogin(){
     char ID[15],password[15];
     int valid=0;
-    while (valid==0){
-        printf("Please enter the user ID\n");
-        scanf("%s",ID);
-        
+    char * IDpassword;
+    printf("Please enter the user ID\n");
+    scanf("%s",ID);
+    IDpassword=userIDverification();
+    if(strcmp(IDpassword, "hoole")){
+        printf("The user does not exist, please register.\n");
+        valid=1;
     }
+    if(valid==0){
         printf("Please enter the user password\n");
         scanf("%s",password);
+        if(strcmp(IDpassword,password)==0){
+            printf("Welcome back!\n");
+        }
+    }
     
+        
 }
 
 
@@ -317,20 +327,18 @@ void administratorinfo(){
 }
 
 
-void userIDverification(){
-    
+char * userIDverification(){
+    static char sh[15];
+    char p[]="hoole";
+    int a=0;
+    if(a==1){
+        strcpy(sh, p);
+    return sh;
+    }
+    return sh;
 }
 
 
-void administratorIDverification(){
-    
-}
-
-
-void userpasswordverification(){
-    
-}
-
-void administratorpasswordverification(){
-    
+char administratorIDverification(){
+    return 1;
 }
