@@ -17,6 +17,13 @@ void administrator();
 void userlogin();
 void logins();
 void administratorlogin();
+void userinfo();
+void administratorinfo();
+void userIDverification();
+void administratorIDverification();
+void userpasswordverification();
+void administratorpasswordverification();
+
 int main()
 {
     //registered();
@@ -146,6 +153,7 @@ void personal(){
             valid=1;
         }
     }
+    userinfo();
 }
 
 
@@ -242,7 +250,7 @@ void administrator(){
     }
     printf("Airline\n");
     scanf("%s",airline);
-
+    administratorinfo();
 }
 
 
@@ -274,10 +282,14 @@ void logins(){
 
 void userlogin(){
     char ID[15],password[15];
-    printf("Please enter the user ID\n");
-    scanf("%s",ID);
-    printf("Please enter the user password\n");
-    scanf("%s",password);
+    int valid=0;
+    while (valid==0){
+        printf("Please enter the user ID\n");
+        scanf("%s",ID);
+        
+    }
+        printf("Please enter the user password\n");
+        scanf("%s",password);
     
 }
 
@@ -289,4 +301,36 @@ void administratorlogin(){
     scanf("%s",ID);
     printf("Please enter the Administrator password\n");
     scanf("%s",password);
+}
+
+
+
+
+void userinfo(){
+    
+}
+
+
+
+void administratorinfo(){
+    
+}
+
+
+void userIDverification(){
+    
+}
+
+
+void administratorIDverification(){
+    
+}
+
+
+void userpasswordverification(){
+    
+}
+
+void administratorpasswordverification(){
+    
 }
