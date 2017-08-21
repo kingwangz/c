@@ -21,6 +21,8 @@ void userinfo();
 void administratorinfo();
 char * userIDverification();
 char * administratorIDverification();
+void userinterface();
+void administratorinterface();
 
 int main()
 {
@@ -294,6 +296,7 @@ void userlogin(){
         scanf("%s",password);
         if(strcmp(IDpassword,password)==0){
             printf("Welcome back!\n");
+            userinterface();
         }
         else{
             printf("Password is wrong, please try again.\n");
@@ -319,6 +322,7 @@ void administratorlogin(){
         scanf("%s",password);
         if(strcmp(IDpassword,password)==0){
             printf("Welcome back!\n");
+            administratorinterface();
         }
         else{
             printf("Password is wrong, please try again.\n");
@@ -362,3 +366,56 @@ char  * administratorIDverification(){
     }
     return passwold;
 }
+
+
+void userinterface(){
+    char phantom;
+    char a[2];
+    while(1)
+    {
+        printf("(a)Flight inquiries\n");
+        printf("(b)Popular city recommendation\n");
+        printf("(c)	Exit\n");
+        scanf("%s",a);
+        scanf("%c",&phantom);
+        if(a[0]=='a')
+        {userlogin();
+        }
+        else if(a[0]=='b')
+        {administratorlogin();
+        }
+        else if(a[0]=='c')
+        {exit(1);}
+    }
+    
+
+}
+
+
+void administratorinterface(){
+    char phantom;
+    char a[2];
+    while(1)
+    {
+        printf("(a)Order management\n");
+        printf("(b)Flight Management\n");
+        printf("(c)Personal information\n");
+        printf("(d)	Exit\n");
+        scanf("%s",a);
+        scanf("%c",&phantom);
+        if(a[0]=='a')
+        {userlogin();
+        }
+        else if(a[0]=='b')
+        {administratorlogin();
+        }
+        else if(a[0]=='c')
+        {administratorlogin();
+        }
+        else if(a[0]=='d')
+        {exit(1);}
+    }
+    
+
+}
+
