@@ -75,7 +75,7 @@ void registered(){
 
 
 void personal(){
-    char ID[15],name[15],gender[15],phone[15],password[15],mailbox[15],IDF[15];
+    char ID[20],name[15],gender[15],phone[15],password[15],mailbox[15],IDF[15];
     int valid=0;
     char phantom;
     char file[]=".txt";
@@ -187,7 +187,7 @@ void personal(){
 
 
 void administrator(){
-    char IDA[15],name[15],gender[15],phone[15],password[15],mailbox[15],airline[15],IDF[15];
+    char IDA[20],name[15],gender[15],phone[15],password[15],mailbox[15],airline[15],IDF[15];
     int valid=0;
     char phantom;
     char file[]=".txt";
@@ -200,7 +200,6 @@ void administrator(){
         if(strlen(IDA)>5&&strlen(IDA)<11){
             valid=1;
         }
-        IDA[10]=' ';
         for(int k=0; k<11 && valid==1 ;k++) {
             if(ispunct(IDA[k])!=0){
                 valid=0;
