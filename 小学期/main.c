@@ -20,15 +20,12 @@ void administratorlogin();
 void userinfo();
 void administratorinfo();
 char * userIDverification();
-char administratorIDverification();
+char * administratorIDverification();
 
 int main()
 {
     //registered();
-    //logins();
-    char * IDpassword;
-    IDpassword=userIDverification();
-    printf("%s\n",IDpassword);
+    logins();
     return 0;
 }
 
@@ -288,7 +285,7 @@ void userlogin(){
     printf("Please enter the user ID\n");
     scanf("%s",ID);
     IDpassword=userIDverification();
-    if(strcmp(IDpassword, "hoole")){
+    if(strcmp(IDpassword, "hoole")==0){
         printf("The user does not exist, please register.\n");
         valid=1;
     }
@@ -298,19 +295,35 @@ void userlogin(){
         if(strcmp(IDpassword,password)==0){
             printf("Welcome back!\n");
         }
+        else{
+            printf("Password is wrong, please try again.\n");
+        }
     }
-    
-        
 }
 
 
 
 void administratorlogin(){
     char ID[15],password[15];
-    printf("Please enter the Administrator ID\n");
+    int valid=0;
+    char * IDpassword;
+    printf("Please enter the administrator ID\n");
     scanf("%s",ID);
-    printf("Please enter the Administrator password\n");
-    scanf("%s",password);
+    IDpassword=administratorIDverification();
+    if(strcmp(IDpassword, "hoole")==0){
+        printf("The administrator does not exist, please register.\n");
+        valid=1;
+    }
+    if(valid==0){
+        printf("Please enter the administrator password\n");
+        scanf("%s",password);
+        if(strcmp(IDpassword,password)==0){
+            printf("Welcome back!\n");
+        }
+        else{
+            printf("Password is wrong, please try again.\n");
+        }
+    }
 }
 
 
@@ -328,17 +341,24 @@ void administratorinfo(){
 
 
 char * userIDverification(){
-    static char sh[15];
-    char p[]="hoole";
+    static char passwold[15];
+    char valid[]="hoole";
     int a=0;
-    if(a==1){
-        strcpy(sh, p);
-    return sh;
+    if(a==0){
+        strcpy(passwold, valid);
+    return passwold;
     }
-    return sh;
+    return passwold;
 }
 
 
-char administratorIDverification(){
-    return 1;
+char  * administratorIDverification(){
+    static char passwold[15];
+    char valid[]="hoole";
+    int a=0;
+    if(a==0){
+        strcpy(passwold, valid);
+        return passwold;
+    }
+    return passwold;
 }
