@@ -23,6 +23,10 @@ char * userIDverification();
 char * administratorIDverification();
 void userinterface();
 void administratorinterface();
+void flightinquiries();
+void recommendation();
+void userinformation();
+void tickets();
 
 int main()
 {
@@ -381,16 +385,16 @@ void userinterface(){
         scanf("%s",a);
         scanf("%c",&phantom);
         if(a[0]=='a')
-        {userlogin();
+        {flightinquiries();
         }
         else if(a[0]=='b')
-        {administratorlogin();
+        {recommendation();
         }
         else if(a[0]=='c')
-        {administratorlogin();
+        {userinformation();
         }
         else if(a[0]=='d')
-        {administratorlogin();
+        {tickets();
         }
         else if(a[0]=='e')
         {exit(1);}
@@ -427,3 +431,23 @@ void administratorinterface(){
 
 }
 
+
+
+void flightinquiries(){
+    
+}
+
+
+void recommendation(){
+    
+}
+
+
+void userinformation(){
+    
+}
+
+
+void tickets(){
+    
+}
