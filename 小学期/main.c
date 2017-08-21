@@ -14,28 +14,31 @@
 void registered();
 void personal();
 void administrator();
+void userlogin();
+void logins();
+void administratorlogin();
 int main()
 {
-    registered();
+    //registered();
+    logins();
     return 0;
 }
 
 
 void registered(){
-    int i=1;
-    char a,phantom;;
-    char code[10];
-    while(i==1)
+    char phantom;
+    char code[10],a[2];
+    while(1)
     {
         printf("(a)Individual user registration\n");
         printf("(b)Administrator registration\n");
         printf("(c)	Exit\n");
-        scanf("%c",&a);
+        scanf("%s",a);
         scanf("%c",&phantom);
-        if(a=='a')
+        if(a[0]=='a')
         {personal();
         }
-        else if(a=='b')
+        else if(a[0]=='b')
         {   printf("Enter the administrator invitation code\n");
             scanf("%s",code);
             scanf("%c",&phantom);
@@ -46,10 +49,13 @@ void registered(){
                 printf("Invitation code error\n");
             }
         }
-        else if(a=='c')
+        else if(a[0]=='c')
         {exit(1);}
     }
 }
+
+
+
 
 void personal(){
     char ID[15],name[15],gender[15],phone[15],password[15],mailbox[15];
@@ -141,6 +147,8 @@ void personal(){
         }
     }
 }
+
+
 
 
 void administrator(){
@@ -235,4 +243,41 @@ void administrator(){
     printf("Airline\n");
     scanf("%s",airline);
 
+}
+
+
+
+
+void logins(){
+    char phantom;
+    char a[2];
+    while(1)
+    {
+        printf("(a)Individual user login\n");
+        printf("(b)Administrator login\n");
+        printf("(c)	Exit\n");
+        scanf("%s",a);
+        scanf("%c",&phantom);
+        if(a[0]=='a')
+        {userlogin();
+        }
+        else if(a[0]=='b')
+        {administratorlogin();
+        }
+        else if(a[0]=='c')
+        {exit(1);}
+    }
+    
+}
+
+
+
+void userlogin(){
+    
+}
+
+
+
+void administratorlogin(){
+    
 }
