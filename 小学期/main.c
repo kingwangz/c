@@ -32,6 +32,8 @@ void record();
 void modification();
 void singleticket();
 void multiplayerticketsn();
+void ordermanagement();
+void flightmanagement();
 
 int main()
 {
@@ -421,13 +423,13 @@ void administratorinterface(){
         scanf("%s",a);
         scanf("%c",&phantom);
         if(a[0]=='a')
-        {userlogin();
+        {ordermanagement();
         }
         else if(a[0]=='b')
-        {administratorlogin();
+        {flightmanagement();
         }
         else if(a[0]=='c')
-        {administratorlogin();
+        {modification();
         }
         else if(a[0]=='d')
         {exit(1);}
@@ -533,6 +535,15 @@ void tickets(){
         else if(a[0]=='c')
         {exit(1);}
     }
+}
+
+void ordermanagement(){
+    
+}
+
+
+void flightmanagement(){
+    
 }
 
 
