@@ -656,7 +656,7 @@ void multiplayerticketsn(){
 
 
 void flightadd(){
-    char Flightnumber[20],airline[15],takeoff[15],landing[15],departuretime[15],flighttime[15],classlevel[15],seatnumber[15],model[15],punctualityrate[15],fares[15],pilots[15],votes[15];
+    char Flightnumber[20],airline[15],takeoff[15],landing[15],departuretime[15],flighttime[15],classlevel[15],seatnumber[15],modela[15],modelb[15],punctualityrate[15],fares[15],pilots[15],votes[15];
     int valid=0;
     char phantom;
     char file[]="f.txt";
@@ -799,17 +799,17 @@ void flightadd(){
         printf("Match the time format hh: mm\n");
         scanf("%s",departuretime);
         scanf("%c",&phantom);
-        if(isdigit(departuretime[0])!=0||isdigit(departuretime[1])!=0){
+        if(isdigit(departuretime[0])!=0&&isdigit(departuretime[1])!=0){
             valid=0;
         }
-        if(departuretime[2]==':'){
-            valid=0;
+        if(valid==0&&departuretime[2]!=':'){
+            valid=1;
         }
-        if(isdigit(departuretime[3])!=0||isdigit(departuretime[4])!=0){
-            valid=0;
+        if(valid==0&&isdigit(departuretime[3])==0&&isdigit(departuretime[4])==0){
+            valid=1;
         }
-        if(valid==1&&phantom==' '){
-            valid=0;
+        if(valid==0&&phantom==' '){
+            valid=1;
         }
     }
     while (valid==0) {
@@ -817,20 +817,88 @@ void flightadd(){
         printf("Match the time format hh: mm\n");
         scanf("%s",flighttime);
         scanf("%c",&phantom);
-        if(isdigit(flighttime[0])!=0||isdigit(flighttime[1])!=0){
+        if(isdigit(flighttime[0])!=0&&isdigit(flighttime[1])!=0){
             valid=1;
         }
-        if(flighttime[2]==':'){
-            valid=1;
+        if(valid==1&&flighttime[2]!=':'){
+            valid=0;
         }
-        if(isdigit(flighttime[3])!=0||isdigit(flighttime[4])!=0){
-            valid=1;
+        if(valid==1&&isdigit(flighttime[3])==0&&isdigit(flighttime[4])==0){
+            valid=0;
         }
         if(valid==1&&phantom==' '){
+            valid=0;
+        }
+    }
+    while (valid==1) {
+        printf("Model\n");
+        printf("Choose models: large, medium and small\n");
+        scanf("%s",modela);
+        scanf("%c",&phantom);
+        if(strcmp(landing,"large")==0||strcmp(landing,"medium")==0|| strcmp(landing,"small")==0){
+            valid=0;
+        }
+        if(valid==0&&phantom==' '){
             valid=1;
         }
     }
-
+    while (valid==0) {
+        printf("Model\n");
+        if(strcmp(landing,"large")==0){
+            printf("Choose models: BY747,BY767,BY777\n");
+            scanf("%s",modelb);
+            scanf("%c",&phantom);
+            if(strcmp(landing,"BY747")==0||strcmp(landing,"BY767")==0|| strcmp(landing,"BY777")==0){
+                valid=1;
+            }
+            if(valid==1&&phantom==' '){
+                valid=0;
+            }
+        }
+        else if(strcmp(landing,"medium")==0){
+            printf("Choose models: BY737,BY738,TU5\n");
+            scanf("%s",modelb);
+            scanf("%c",&phantom);
+            if(strcmp(landing,"BY737")==0||strcmp(landing,"BY738")==0|| strcmp(landing,"TU5")==0){
+                valid=1;
+            }
+            if(valid==1&&phantom==' '){
+                valid=0;
+            }
+        }
+        else{
+            printf("Choose models: YN7,AN4\n");
+            scanf("%s",modelb);
+            scanf("%c",&phantom);
+            if(strcmp(landing,"YN7")==0||strcmp(landing,"AN4")==0){
+                valid=1;
+            }
+            if(valid==1&&phantom==' '){
+                valid=0;
+            }
+        }
+    }
+    while (valid==1) {
+        printf("Punctualityrate\n");
+        printf("According to the percentage format: xx.x%% \n");
+        scanf("%s",punctualityrate);
+        scanf("%c",&phantom);
+        if(isdigit(punctualityrate[0])!=0&&isdigit(punctualityrate[1])!=0){
+            valid=0;
+        }
+        if(valid==0&&flighttime[2]!='.'){
+            valid=1;
+        }
+        if(valid==0&&isdigit(punctualityrate[3])!=0){
+            valid=1;
+        }
+        if(valid==0&&flighttime[4]=='%'){
+            valid=1;
+        }
+        if(valid==0&&phantom==' '){
+            valid=1;
+        }
+    }
     strcat(Flightnumber, file);
     infile=fopen(Flightnumber,"a+" );
     if(infile==NULL){
