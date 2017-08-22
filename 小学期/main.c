@@ -737,63 +737,100 @@ void flightadd(){
             valid=1;
         }
     }
-    while (valid==1) {
+    while (valid==0) {
         printf("Takeoff\n");
         printf("Requirements for domestic cities contain Airport\n");
         scanf("%s",landing);
         scanf("%c",&phantom);
         if (strcmp(landing,"Shenzhen")==0||strcmp(landing,"Dalian")==0||strcmp(landing,"Beijing")==0) {
-            valid=0;
+            valid=1;
         }
         if(strcmp(landing,"Shantou")==0||strcmp(landing,"Xian")==0||strcmp(landing,"Shenyang")==0){
-            valid=0;
+            valid=1;
         }
         if(strcmp(landing,"Fuzhou")==0||strcmp(landing,"Chengdu")==0||strcmp(landing,"Haikou")==0){
-            valid=0;
+            valid=1;
         }
         if(strcmp(landing,"Xiamen")==0||strcmp(landing,"Tianjin")==0||strcmp(landing,"Qingdao")==0){
-            valid=0;
+            valid=1;
         }
         if(strcmp(landing,"Hangzhou")==0||strcmp(landing,"Ningbo")==0||strcmp(landing,"Hangzhou")==0){
-            valid=0;
+            valid=1;
         }
         if(strcmp(landing,"Wuhan")==0||strcmp(landing,"Wenzhou")==0||strcmp(landing,"Nanjing")==0){
-            valid=0;
+            valid=1;
         }
         if(strcmp(landing,"Zhanjiang")==0|| strcmp(landing,"Harbin")==0||strcmp(landing,"Sanya")==0){
-            valid=0;
+            valid=1;
         }
         if(strcmp(landing,"Guiyang")==0||strcmp(landing,"Beihai")==0||strcmp(landing,"Chongqing")==0){
-            valid=0;
+            valid=1;
         }
         if(strcmp(landing,"Nantong")==0||strcmp(landing,"Jinan")==0||strcmp(landing,"Qinhuangdao")==0){
-            valid=0;
+            valid=1;
         }
         if(strcmp(landing,"Shijiazhuang")==0||strcmp(landing,"Lianyungang")==0||strcmp(landing,"Changsha")==0){
-            valid=0;
+            valid=1;
         }
         if(strcmp(landing,"Guilin")==0||strcmp(landing,"Hefei")==0||strcmp(landing,"Huangshan")==0){
-            valid=0;
+            valid=1;
         }
         if(strcmp(landing,"Nanchang")==0||strcmp(landing,"Zhangjiajie")==0||strcmp(landing,"Taiyuan")==0){
-            valid=0;
+            valid=1;
         }
         if(strcmp(landing,"Xishuangbanna")==0||strcmp(landing,"Hohhot")==0||strcmp(landing,"Luoyang")==0){
-            valid=0;
+            valid=1;
         }
         if(strcmp(landing,"Zhengzhou")==0||strcmp(landing,"Dunhuang")==0||strcmp(landing,"Shanghai")==0){
-            valid=0;
+            valid=1;
         }
         if(strcmp(landing,"Nanning")==0||strcmp(landing,"Kunming")==0|| strcmp(landing,"Kunming")==0){
-            valid=0;
+            valid=1;
         }
         if (strcmp(landing,"Changchun")==0||strcmp(landing,"Zhuhai")==0) {
+            valid=1;
+        }
+        if(valid==1&&phantom==' '){
             valid=0;
         }
-        if(valid==0&&phantom==' '){
+    }
+    while (valid==1) {
+        printf("Departuretime\n");
+        printf("Match the time format hh: mm\n");
+        scanf("%s",departuretime);
+        scanf("%c",&phantom);
+        if(isdigit(departuretime[0])!=0||isdigit(departuretime[1])!=0){
+            valid=0;
+        }
+        if(departuretime[2]==':'){
+            valid=0;
+        }
+        if(isdigit(departuretime[3])!=0||isdigit(departuretime[4])!=0){
+            valid=0;
+        }
+        if(valid==1&&phantom==' '){
+            valid=0;
+        }
+    }
+    while (valid==0) {
+        printf("Flighttime\n");
+        printf("Match the time format hh: mm\n");
+        scanf("%s",flighttime);
+        scanf("%c",&phantom);
+        if(isdigit(flighttime[0])!=0||isdigit(flighttime[1])!=0){
+            valid=1;
+        }
+        if(flighttime[2]==':'){
+            valid=1;
+        }
+        if(isdigit(flighttime[3])!=0||isdigit(flighttime[4])!=0){
+            valid=1;
+        }
+        if(valid==1&&phantom==' '){
             valid=1;
         }
     }
+
     strcat(Flightnumber, file);
     infile=fopen(Flightnumber,"a+" );
     if(infile==NULL){
