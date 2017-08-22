@@ -666,8 +666,53 @@ void flightadd(){
         printf("Requires two letters four digits\n");
         scanf("%s",Flightnumber);
         scanf("%c",&phantom);
-        
+        if (isalpha(Flightnumber[0])!=0&&isalpha(Flightnumber[1])!=0){
+            valid=1;
+        }
+        for(int k=2;k<6&&valid==1;k++) {
+            if(isdigit(Flightnumber[k])==0){
+                valid=0;
+            }
+        }
+        if(valid==1&&phantom==' '){
+            valid=0;
+        }
     }
+    printf("Airline\n");
+    scanf("%s",airline);
+    while (valid==1) {
+        printf("Takeoff\n");
+        printf("Requirements for domestic cities contain Airport\n");
+        scanf("%s",takeoff);
+        scanf("%c",&phantom);
+        if (strcmp(takeoff,"Shenzhen")==0||strcmp(takeoff,"Dalian")==0||strcmp(takeoff,"Beijing")==0||strcmp(takeoff,"Chengdu")==0||strcmp(takeoff,"Shantou")==0||strcmp(takeoff,"Xian")==0||strcmp(takeoff,"Shenyang")==0||strcmp(takeoff,"Fuzhou")==0||strcmp(takeoff,"Urumqi")==0||strcmp(takeoff,"Haikou")==0||strcmp(takeoff,"Xiamen")==0||strcmp(takeoff,"Tianjin")==0||strcmp(takeoff,"Qingdao")==0||strcmp(takeoff,"Hangzhou")==0||strcmp(takeoff,"Ningbo")==0||strcmp(takeoff,"Hangzhou")==0||strcmp(takeoff,"Wuhan")==0||strcmp(takeoff,"Wenzhou")==0||strcmp(takeoff,"Nanjing")==0||strcmp(takeoff,"Zhanjiang")==0|| strcmp(takeoff,"Harbin")==0||strcmp(takeoff,"Sanya")==0||strcmp(takeoff,"Guiyang")==0||strcmp(takeoff,"Beihai")==0||strcmp(takeoff,"Chongqing")==0) {
+            valid=0;
+        }
+        if (strcmp(takeoff,"Nantong")==0||strcmp(takeoff,"Jinan")==0||strcmp(takeoff,"Qinhuangdao")==0||strcmp(takeoff,"Shijiazhuang")==0||strcmp(takeoff,"Lianyungang")==0||strcmp(takeoff,"Changsha")==0||strcmp(takeoff,"Guilin")==0||strcmp(takeoff,"Hefei")==0||strcmp(takeoff,"Huangshan")==0||strcmp(takeoff,"Nanchang")==0||strcmp(takeoff,"Zhangjiajie")==0||strcmp(takeoff,"Taiyuan")==0||strcmp(takeoff,"Xishuangbanna")==0||strcmp(takeoff,"Hohhot")==0||strcmp(takeoff,"Luoyang")==0||strcmp(takeoff,"Zhengzhou")==0||
+            strcmp(takeoff,"Dunhuang")==0||strcmp(takeoff,"Shanghai")==0||strcmp(takeoff,"Nanning")==0||strcmp(takeoff,"Kunming")==0|| strcmp(takeoff,"Kunming")==0||strcmp(takeoff,"Changchun")==0||strcmp(takeoff,"Zhuhai")==0) {
+            valid=0;
+        }
+        if(valid==0&&phantom==' '){
+            valid=1;
+        }
+    }
+    while (valid==0) {
+        printf("Landing\n");
+        printf("Requirements for domestic cities contain Airport\n");
+        scanf("%s",takeoff);
+        scanf("%c",&phantom);
+        if (strcmp(takeoff,"Shenzhen")==0||strcmp(takeoff,"Dalian")==0||strcmp(takeoff,"Beijing")==0||strcmp(takeoff,"Chengdu")==0||strcmp(takeoff,"Shantou")==0||strcmp(takeoff,"Xian")==0||strcmp(takeoff,"Shenyang")==0||strcmp(takeoff,"Fuzhou")==0||strcmp(takeoff,"Urumqi")==0||strcmp(takeoff,"Haikou")==0||strcmp(takeoff,"Xiamen")==0||strcmp(takeoff,"Tianjin")==0||strcmp(takeoff,"Qingdao")==0||strcmp(takeoff,"Hangzhou")==0||strcmp(takeoff,"Ningbo")==0||strcmp(takeoff,"Hangzhou")==0||strcmp(takeoff,"Wuhan")==0||strcmp(takeoff,"Wenzhou")==0||strcmp(takeoff,"Nanjing")==0||strcmp(takeoff,"Zhanjiang")==0|| strcmp(takeoff,"Harbin")==0||strcmp(takeoff,"Sanya")==0||strcmp(takeoff,"Guiyang")==0||strcmp(takeoff,"Beihai")==0||strcmp(takeoff,"Chongqing")==0) {
+            valid=1;
+        }
+        if (strcmp(takeoff,"Nantong")==0||strcmp(takeoff,"Jinan")==0||strcmp(takeoff,"Qinhuangdao")==0||strcmp(takeoff,"Shijiazhuang")==0||strcmp(takeoff,"Lianyungang")==0||strcmp(takeoff,"Changsha")==0||strcmp(takeoff,"Guilin")==0||strcmp(takeoff,"Hefei")==0||strcmp(takeoff,"Huangshan")==0||strcmp(takeoff,"Nanchang")==0||strcmp(takeoff,"Zhangjiajie")==0||strcmp(takeoff,"Taiyuan")==0||strcmp(takeoff,"Xishuangbanna")==0||strcmp(takeoff,"Hohhot")==0||strcmp(takeoff,"Luoyang")==0||strcmp(takeoff,"Zhengzhou")==0||
+            strcmp(takeoff,"Dunhuang")==0||strcmp(takeoff,"Shanghai")==0||strcmp(takeoff,"Nanning")==0||strcmp(takeoff,"Kunming")==0|| strcmp(takeoff,"Kunming")==0||strcmp(takeoff,"Changchun")==0||strcmp(takeoff,"Zhuhai")==0) {
+            valid=1;
+        }
+        if(valid==1&&phantom==' '){
+            valid=0;
+        }
+    }
+    
     strcat(Flightnumber, file);
     infile=fopen(Flightnumber,"a+" );
     if(infile==NULL){
