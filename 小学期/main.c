@@ -685,34 +685,115 @@ void flightadd(){
         printf("Requirements for domestic cities contain Airport\n");
         scanf("%s",takeoff);
         scanf("%c",&phantom);
-        if (strcmp(takeoff,"Shenzhen")==0||strcmp(takeoff,"Dalian")==0||strcmp(takeoff,"Beijing")==0||strcmp(takeoff,"Chengdu")==0||strcmp(takeoff,"Shantou")==0||strcmp(takeoff,"Xian")==0||strcmp(takeoff,"Shenyang")==0||strcmp(takeoff,"Fuzhou")==0||strcmp(takeoff,"Urumqi")==0||strcmp(takeoff,"Haikou")==0||strcmp(takeoff,"Xiamen")==0||strcmp(takeoff,"Tianjin")==0||strcmp(takeoff,"Qingdao")==0||strcmp(takeoff,"Hangzhou")==0||strcmp(takeoff,"Ningbo")==0||strcmp(takeoff,"Hangzhou")==0||strcmp(takeoff,"Wuhan")==0||strcmp(takeoff,"Wenzhou")==0||strcmp(takeoff,"Nanjing")==0||strcmp(takeoff,"Zhanjiang")==0|| strcmp(takeoff,"Harbin")==0||strcmp(takeoff,"Sanya")==0||strcmp(takeoff,"Guiyang")==0||strcmp(takeoff,"Beihai")==0||strcmp(takeoff,"Chongqing")==0) {
+        if (strcmp(takeoff,"Shenzhen")==0||strcmp(takeoff,"Dalian")==0||strcmp(takeoff,"Beijing")==0) {
             valid=0;
         }
-        if (strcmp(takeoff,"Nantong")==0||strcmp(takeoff,"Jinan")==0||strcmp(takeoff,"Qinhuangdao")==0||strcmp(takeoff,"Shijiazhuang")==0||strcmp(takeoff,"Lianyungang")==0||strcmp(takeoff,"Changsha")==0||strcmp(takeoff,"Guilin")==0||strcmp(takeoff,"Hefei")==0||strcmp(takeoff,"Huangshan")==0||strcmp(takeoff,"Nanchang")==0||strcmp(takeoff,"Zhangjiajie")==0||strcmp(takeoff,"Taiyuan")==0||strcmp(takeoff,"Xishuangbanna")==0||strcmp(takeoff,"Hohhot")==0||strcmp(takeoff,"Luoyang")==0||strcmp(takeoff,"Zhengzhou")==0||
-            strcmp(takeoff,"Dunhuang")==0||strcmp(takeoff,"Shanghai")==0||strcmp(takeoff,"Nanning")==0||strcmp(takeoff,"Kunming")==0|| strcmp(takeoff,"Kunming")==0||strcmp(takeoff,"Changchun")==0||strcmp(takeoff,"Zhuhai")==0) {
+        if(strcmp(takeoff,"Shantou")==0||strcmp(takeoff,"Xian")==0||strcmp(takeoff,"Shenyang")==0){
+            valid=0;
+        }
+        if(strcmp(takeoff,"Fuzhou")==0||strcmp(takeoff,"Chengdu")==0||strcmp(takeoff,"Haikou")==0){
+            valid=0;
+        }
+        if(strcmp(takeoff,"Xiamen")==0||strcmp(takeoff,"Tianjin")==0||strcmp(takeoff,"Qingdao")==0){
+            valid=0;
+        }
+        if(strcmp(takeoff,"Hangzhou")==0||strcmp(takeoff,"Ningbo")==0||strcmp(takeoff,"Hangzhou")==0){
+            valid=0;
+        }
+        if(strcmp(takeoff,"Wuhan")==0||strcmp(takeoff,"Wenzhou")==0||strcmp(takeoff,"Nanjing")==0){
+            valid=0;
+        }
+        if(strcmp(takeoff,"Zhanjiang")==0|| strcmp(takeoff,"Harbin")==0||strcmp(takeoff,"Sanya")==0){
+            valid=0;
+        }
+        if(strcmp(takeoff,"Guiyang")==0||strcmp(takeoff,"Beihai")==0||strcmp(takeoff,"Chongqing")==0){
+            valid=0;
+        }
+        if(strcmp(takeoff,"Nantong")==0||strcmp(takeoff,"Jinan")==0||strcmp(takeoff,"Qinhuangdao")==0){
+            valid=0;
+        }
+        if(strcmp(takeoff,"Shijiazhuang")==0||strcmp(takeoff,"Lianyungang")==0||strcmp(takeoff,"Changsha")==0){
+            valid=0;
+        }
+        if(strcmp(takeoff,"Guilin")==0||strcmp(takeoff,"Hefei")==0||strcmp(takeoff,"Huangshan")==0){
+            valid=0;
+        }
+        if(strcmp(takeoff,"Nanchang")==0||strcmp(takeoff,"Zhangjiajie")==0||strcmp(takeoff,"Taiyuan")==0){
+            valid=0;
+        }
+        if(strcmp(takeoff,"Xishuangbanna")==0||strcmp(takeoff,"Hohhot")==0||strcmp(takeoff,"Luoyang")==0){
+            valid=0;
+        }
+        if(strcmp(takeoff,"Zhengzhou")==0||strcmp(takeoff,"Dunhuang")==0||strcmp(takeoff,"Shanghai")==0){
+            valid=0;
+        }
+        if(strcmp(takeoff,"Nanning")==0||strcmp(takeoff,"Kunming")==0|| strcmp(takeoff,"Kunming")==0){
+            valid=0;
+        }
+        if (strcmp(takeoff,"Changchun")==0||strcmp(takeoff,"Zhuhai")==0) {
             valid=0;
         }
         if(valid==0&&phantom==' '){
             valid=1;
         }
     }
-    while (valid==0) {
-        printf("Landing\n");
+    while (valid==1) {
+        printf("Takeoff\n");
         printf("Requirements for domestic cities contain Airport\n");
-        scanf("%s",takeoff);
+        scanf("%s",landing);
         scanf("%c",&phantom);
-        if (strcmp(takeoff,"Shenzhen")==0||strcmp(takeoff,"Dalian")==0||strcmp(takeoff,"Beijing")==0||strcmp(takeoff,"Chengdu")==0||strcmp(takeoff,"Shantou")==0||strcmp(takeoff,"Xian")==0||strcmp(takeoff,"Shenyang")==0||strcmp(takeoff,"Fuzhou")==0||strcmp(takeoff,"Urumqi")==0||strcmp(takeoff,"Haikou")==0||strcmp(takeoff,"Xiamen")==0||strcmp(takeoff,"Tianjin")==0||strcmp(takeoff,"Qingdao")==0||strcmp(takeoff,"Hangzhou")==0||strcmp(takeoff,"Ningbo")==0||strcmp(takeoff,"Hangzhou")==0||strcmp(takeoff,"Wuhan")==0||strcmp(takeoff,"Wenzhou")==0||strcmp(takeoff,"Nanjing")==0||strcmp(takeoff,"Zhanjiang")==0|| strcmp(takeoff,"Harbin")==0||strcmp(takeoff,"Sanya")==0||strcmp(takeoff,"Guiyang")==0||strcmp(takeoff,"Beihai")==0||strcmp(takeoff,"Chongqing")==0) {
-            valid=1;
-        }
-        if (strcmp(takeoff,"Nantong")==0||strcmp(takeoff,"Jinan")==0||strcmp(takeoff,"Qinhuangdao")==0||strcmp(takeoff,"Shijiazhuang")==0||strcmp(takeoff,"Lianyungang")==0||strcmp(takeoff,"Changsha")==0||strcmp(takeoff,"Guilin")==0||strcmp(takeoff,"Hefei")==0||strcmp(takeoff,"Huangshan")==0||strcmp(takeoff,"Nanchang")==0||strcmp(takeoff,"Zhangjiajie")==0||strcmp(takeoff,"Taiyuan")==0||strcmp(takeoff,"Xishuangbanna")==0||strcmp(takeoff,"Hohhot")==0||strcmp(takeoff,"Luoyang")==0||strcmp(takeoff,"Zhengzhou")==0||
-            strcmp(takeoff,"Dunhuang")==0||strcmp(takeoff,"Shanghai")==0||strcmp(takeoff,"Nanning")==0||strcmp(takeoff,"Kunming")==0|| strcmp(takeoff,"Kunming")==0||strcmp(takeoff,"Changchun")==0||strcmp(takeoff,"Zhuhai")==0) {
-            valid=1;
-        }
-        if(valid==1&&phantom==' '){
+        if (strcmp(landing,"Shenzhen")==0||strcmp(landing,"Dalian")==0||strcmp(landing,"Beijing")==0) {
             valid=0;
         }
+        if(strcmp(landing,"Shantou")==0||strcmp(landing,"Xian")==0||strcmp(landing,"Shenyang")==0){
+            valid=0;
+        }
+        if(strcmp(landing,"Fuzhou")==0||strcmp(landing,"Chengdu")==0||strcmp(landing,"Haikou")==0){
+            valid=0;
+        }
+        if(strcmp(landing,"Xiamen")==0||strcmp(landing,"Tianjin")==0||strcmp(landing,"Qingdao")==0){
+            valid=0;
+        }
+        if(strcmp(landing,"Hangzhou")==0||strcmp(landing,"Ningbo")==0||strcmp(landing,"Hangzhou")==0){
+            valid=0;
+        }
+        if(strcmp(landing,"Wuhan")==0||strcmp(landing,"Wenzhou")==0||strcmp(landing,"Nanjing")==0){
+            valid=0;
+        }
+        if(strcmp(landing,"Zhanjiang")==0|| strcmp(landing,"Harbin")==0||strcmp(landing,"Sanya")==0){
+            valid=0;
+        }
+        if(strcmp(landing,"Guiyang")==0||strcmp(landing,"Beihai")==0||strcmp(landing,"Chongqing")==0){
+            valid=0;
+        }
+        if(strcmp(landing,"Nantong")==0||strcmp(landing,"Jinan")==0||strcmp(landing,"Qinhuangdao")==0){
+            valid=0;
+        }
+        if(strcmp(landing,"Shijiazhuang")==0||strcmp(landing,"Lianyungang")==0||strcmp(landing,"Changsha")==0){
+            valid=0;
+        }
+        if(strcmp(landing,"Guilin")==0||strcmp(landing,"Hefei")==0||strcmp(landing,"Huangshan")==0){
+            valid=0;
+        }
+        if(strcmp(landing,"Nanchang")==0||strcmp(landing,"Zhangjiajie")==0||strcmp(landing,"Taiyuan")==0){
+            valid=0;
+        }
+        if(strcmp(landing,"Xishuangbanna")==0||strcmp(landing,"Hohhot")==0||strcmp(landing,"Luoyang")==0){
+            valid=0;
+        }
+        if(strcmp(landing,"Zhengzhou")==0||strcmp(landing,"Dunhuang")==0||strcmp(landing,"Shanghai")==0){
+            valid=0;
+        }
+        if(strcmp(landing,"Nanning")==0||strcmp(landing,"Kunming")==0|| strcmp(landing,"Kunming")==0){
+            valid=0;
+        }
+        if (strcmp(landing,"Changchun")==0||strcmp(landing,"Zhuhai")==0) {
+            valid=0;
+        }
+        if(valid==0&&phantom==' '){
+            valid=1;
+        }
     }
-    
     strcat(Flightnumber, file);
     infile=fopen(Flightnumber,"a+" );
     if(infile==NULL){
