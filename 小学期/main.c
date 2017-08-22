@@ -18,7 +18,7 @@ void userlogin();
 void logins();
 void administratorlogin();
 char * userIDverification(char *);
-char * administratorIDverification();
+char * administratorIDverification(char *);
 void userinterface();
 void administratorinterface();
 void flightinquiries();
@@ -190,7 +190,7 @@ void administrator(){
     char IDA[20],name[15],gender[15],phone[15],password[15],mailbox[15],airline[15],IDF[15];
     int valid=0;
     char phantom;
-    char file[]=".txt";
+    char file[]="a.txt";
     FILE *infile;
     while(valid==0){
         printf("Administrator ID\n");
@@ -358,12 +358,14 @@ void administratorlogin(){
     char * IDpassword;
     printf("Please enter the administrator ID\n");
     scanf("%s",ID);
-    IDpassword=administratorIDverification();
-    if(strcmp(IDpassword, "hoole")==0){
+    IDpassword=administratorIDverification(ID);
+    if(strcmp(IDpassword, "h")==0){
         printf("The administrator does not exist, please register.\n");
+    }
+    else{
         valid=1;
     }
-    if(valid==0){
+    if(valid==1){
         printf("Please enter the administrator password\n");
         scanf("%s",password);
         if(strcmp(IDpassword,password)==0){
@@ -400,13 +402,22 @@ char * userIDverification(char * IDU){
 }
 
 
-char  * administratorIDverification(){
+char  * administratorIDverification(char * IDA){
     static char passwold[15];
-    char valid[]="hoole";
-    int a=0;
-    if(a==0){
+    char ID[20],name[15],gender[15],phone[15],mailbox[15],pass[15];
+    FILE *infile;
+    char file[]="a.txt";
+    char IDF[20];
+    char valid[]="h";
+    strcpy(IDF, IDA);
+    strcat(IDF, file);
+    infile=fopen(IDF,"r");
+    if (infile==NULL) {
         strcpy(passwold, valid);
-        return passwold;
+    }
+    else{
+        fscanf(infile,"%s %s %s %s %s %s",ID,name,gender,phone,pass,mailbox);
+        strcpy(passwold, pass);
     }
     return passwold;
 }
