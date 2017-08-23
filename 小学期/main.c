@@ -678,9 +678,10 @@ void multiplayerticketsn(){
 
 
 void flightadd(){
-    char Flightnumber[20],airline[15],takeoff[15],landing[15],departuretime[15],flighttime[15],firstseatnumber[55],bussinessseatnumber[55],economyseatnumber[55],modela[15],modelb[15],punctualityrate[15],pilots[15],firstfares[15],bussinessfares[15],economyfares[15],seat[55];
-    int valid=0,votes;
+    char Flightnumber[20],airline[15],takeoff[15],landing[15],departuretime[15],flighttime[15],firstseatnumber[55],bussinessseatnumber[55],economyseatnumber[55],modela[15],modelb[15],punctualityrate[15],pilotsa[15],pilotsb[15],firstfares[15],bussinessfares[15],economyfares[15],seat[55],determine[15],votes[15];
+    int valid=0;
     char phantom;
+    FILE *infile;
     while (valid==0) {
         printf("Flightnumbel\n");
         printf("Requires two letters four digits\n");
@@ -1031,9 +1032,8 @@ void flightadd(){
             valid=1;
         }
     }
-    
     if(strcmp(modela,"large")==0){
-        votes=360;
+        strcmp(votes, "360");
         for(int i=0;i<55;i++){
             firstseatnumber[i]='F';
         }
@@ -1054,7 +1054,7 @@ void flightadd(){
         
     }
     if(strcmp(modela,"medium")==0){
-        votes=200;
+        strcmp(votes, "200");
         for(int i=0;i<55;i++){
             firstseatnumber[i]='F';
         }
@@ -1074,7 +1074,7 @@ void flightadd(){
         }
     }
     if(strcmp(modela,"small")==0){
-        votes=100;
+        strcmp(votes, "100");
         for(int i=0;i<55;i++){
             firstseatnumber[i]='F';
         }
@@ -1093,7 +1093,25 @@ void flightadd(){
             seat[i+5]='f';
         }
     }
-    printf("Pilots\n");
-    scanf("%s",pilots);
-    
+    printf("Pilots A\n");
+    scanf("%s",pilotsa);
+    printf("Pilots B\n");
+    scanf("%s",pilotsb);
+    while (valid==0) {
+        printf("determine\n");
+        printf("Make a change: determine or negative\n");
+        scanf("%s",determine);
+        scanf("%c",&phantom);
+        if (strcmp(airline,"determine")==0||strcmp(airline,"negative")==0) {
+            valid=1;
+        }
+        if(valid==1&&phantom==' '){
+            valid=0;
+        }
+    }
+    if(strcmp(airline,"determine")==0){
+        infile=fopen("flight.txt","a+");
+        fprintf(infile,"%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s",Flightnumber,takeoff,landing,departuretime,flighttime,modela,modelb,punctualityrate,firstfares,bussinessfares,economyfares,airline,votes,pilotsa,pilotsb);
+        fclose(infile);
+    }
 }
