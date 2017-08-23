@@ -695,6 +695,9 @@ void flightadd(){
                 valid=0;
             }
         }
+        if(valid==1&&strlen(Flightnumber)!=6){
+            valid=0;
+        }
         if(valid==1&&phantom==' '){
             valid=0;
         }
@@ -839,6 +842,9 @@ void flightadd(){
         if(valid==0&&departuretime[3]=='6'&&departuretime[4]!='0'){
             valid=1;
         }
+        if(valid==0&&strlen(departuretime)!=5){
+            valid=1;
+        }
         if(valid==0&&phantom==' '){
             valid=1;
         }
@@ -861,6 +867,9 @@ void flightadd(){
             valid=0;
         }
         if(valid==1&&flighttime[3]=='6'&&flighttime[4]!='0'){
+            valid=0;
+        }
+        if(valid==1&&strlen(flighttime)!=5){
             valid=0;
         }
         if(valid==1&&phantom==' '){
@@ -932,6 +941,9 @@ void flightadd(){
         if(valid==0&&punctualityrate[4]!='%'){
             valid=1;
         }
+        if(valid==0&&strlen(punctualityrate)!=5){
+            valid=1;
+        }
         if(valid==0&&phantom==' '){
             valid=1;
         }
@@ -956,6 +968,9 @@ void flightadd(){
             if(firstfares[3]!='.'||isdigit(firstfares[4])==0||isdigit(firstfares[5])==0){
                 valid=0;
             }
+        }
+        if(valid==1&&strlen(firstfares)!=6){
+            valid=0;
         }
         if(valid==1&&phantom==' '){
             valid=0;
@@ -982,6 +997,9 @@ void flightadd(){
                 valid=1;
             }
         }
+        if(valid==0&&strlen(bussinessfares)!=6){
+            valid=1;
+        }
         if(valid==0&&phantom==' '){
             valid=1;
         }
@@ -1006,6 +1024,9 @@ void flightadd(){
             if(economyfares[3]!='.'||isdigit(economyfares[4])==0||isdigit(economyfares[5])==0){
                 valid=0;
             }
+        }
+        if(valid==1&&strlen(economyfares)!=6){
+            valid=0;
         }
         if(valid==1&&phantom==' '){
             valid=0;
@@ -1102,7 +1123,7 @@ void flightadd(){
         printf("Make a change: determine or negative\n");
         scanf("%s",determine);
         scanf("%c",&phantom);
-        if (strcmp(airline,"determine")==0||strcmp(airline,"negative")==0) {
+        if (strcmp(determine,"determine")==0||strcmp(determine,"negative")==0) {
             valid=1;
         }
         if(valid==1&&phantom==' '){
