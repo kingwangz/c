@@ -656,7 +656,7 @@ void multiplayerticketsn(){
 
 
 void flightadd(){
-    char Flightnumber[20],airline[15],takeoff[15],landing[15],departuretime[15],flighttime[15],firstseatnumber[15],bussinessseatnumber[15],economyseatnumber[15],modela[15],modelb[15],punctualityrate[15],fares[15],firstpilots[15],bussinesspilots[15],economypilots[15];
+    char Flightnumber[20],airline[15],takeoff[15],landing[15],departuretime[15],flighttime[15],firstseatnumber[150],bussinessseatnumber[150],economyseatnumber[150],modela[15],modelb[15],punctualityrate[15],fares[15],firstpilots[15],bussinesspilots[15],economypilots[15];
     int valid=0,votes;
     char phantom;
     char file[]="f.txt";
@@ -854,7 +854,6 @@ void flightadd(){
             if(valid==1&&phantom==' '){
                 valid=0;
             }
-            votes=350;
         }
         else if(strcmp(landing,"medium")==0){
             printf("Choose models: BY737,BY738,TU5\n");
@@ -866,7 +865,6 @@ void flightadd(){
             if(valid==1&&phantom==' '){
                 valid=0;
             }
-            votes=200;
         }
         else{
             printf("Choose models: YN7,AN4\n");
@@ -878,7 +876,6 @@ void flightadd(){
             if(valid==1&&phantom==' '){
                 valid=0;
             }
-            votes=100;
         }
     }
     while (valid==1) {
@@ -976,12 +973,11 @@ void flightadd(){
             valid=0;
         }
     }
+    
     strcat(Flightnumber, file);
     infile=fopen(Flightnumber,"a+" );
     if(infile==NULL){
         printf("system error\n");
         exit(1);
     }
-    fprintf(infile,"%s %s %s %s %s %s %s",IDA,name,gender,phone,password,mailbox,airline);
-    fclose(infile);
 }
