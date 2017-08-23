@@ -656,7 +656,7 @@ void multiplayerticketsn(){
 
 
 void flightadd(){
-    char Flightnumber[20],airline[15],takeoff[15],landing[15],departuretime[15],flighttime[15],firstseatnumber[150],bussinessseatnumber[150],economyseatnumber[150],modela[15],modelb[15],punctualityrate[15],fares[15],firstpilots[15],bussinesspilots[15],economypilots[15];
+    char Flightnumber[20],airline[15],takeoff[15],landing[15],departuretime[15],flighttime[15],firstseatnumber[150],bussinessseatnumber[150],economyseatnumber[150],modela[15],modelb[15],punctualityrate[15],pilots[15],firstfares[15],bussinessfares[15],economyfares[15],automatically[15];
     int valid=0,votes;
     char phantom;
     char file[]="f.txt";
@@ -835,7 +835,7 @@ void flightadd(){
         printf("Choose models: large, medium and small\n");
         scanf("%s",modela);
         scanf("%c",&phantom);
-        if(strcmp(landing,"large")==0||strcmp(landing,"medium")==0|| strcmp(landing,"small")==0){
+        if(strcmp(modela,"large")==0||strcmp(modela,"medium")==0||strcmp(modela,"small")==0){
             valid=0;
         }
         if(valid==0&&phantom==' '){
@@ -848,7 +848,7 @@ void flightadd(){
             printf("Choose models: BY747,BY767,BY777\n");
             scanf("%s",modelb);
             scanf("%c",&phantom);
-            if(strcmp(landing,"BY747")==0||strcmp(landing,"BY767")==0|| strcmp(landing,"BY777")==0){
+            if(strcmp(modelb,"BY747")==0||strcmp(modelb,"BY767")==0|| strcmp(modelb,"BY777")==0){
                 valid=1;
             }
             if(valid==1&&phantom==' '){
@@ -859,7 +859,7 @@ void flightadd(){
             printf("Choose models: BY737,BY738,TU5\n");
             scanf("%s",modelb);
             scanf("%c",&phantom);
-            if(strcmp(landing,"BY737")==0||strcmp(landing,"BY738")==0|| strcmp(landing,"TU5")==0){
+            if(strcmp(modelb,"BY737")==0||strcmp(modelb,"BY738")==0|| strcmp(modelb,"TU5")==0){
                 valid=1;
             }
             if(valid==1&&phantom==' '){
@@ -870,7 +870,7 @@ void flightadd(){
             printf("Choose models: YN7,AN4\n");
             scanf("%s",modelb);
             scanf("%c",&phantom);
-            if(strcmp(landing,"YN7")==0||strcmp(landing,"AN4")==0){
+            if(strcmp(modelb,"YN7")==0||strcmp(modelb,"AN4")==0){
                 valid=1;
             }
             if(valid==1&&phantom==' '){
@@ -886,13 +886,13 @@ void flightadd(){
         if(isdigit(punctualityrate[0])!=0&&isdigit(punctualityrate[1])!=0){
             valid=0;
         }
-        if(valid==0&&flighttime[2]!='.'){
+        if(valid==0&&punctualityrate[2]!='.'){
             valid=1;
         }
         if(valid==0&&isdigit(punctualityrate[3])!=0){
             valid=1;
         }
-        if(valid==0&&flighttime[4]=='%'){
+        if(valid==0&&punctualityrate[4]=='%'){
             valid=1;
         }
         if(valid==0&&phantom==' '){
@@ -902,21 +902,21 @@ void flightadd(){
     while (valid==0) {
         printf("FirstClass pilots\n");
         printf("According  format: xxx.xx \n");
-        scanf("%s",firstpilots);
+        scanf("%s",firstfares);
         scanf("%c",&phantom);
-        if(isdigit(firstpilots[0])!=0&&isdigit(firstpilots[1])!=0){
+        if(isdigit(firstfares[0])!=0&&isdigit(firstfares[1])!=0){
             valid=1;
         }
-        if((isdigit(firstpilots[2])==0||flighttime[2]!='.')&&valid==1){
+        if((isdigit(firstfares[2])==0||firstfares[2]!='.')&&valid==1){
             valid=0;
         }
-        if(valid==1&&flighttime[2]!='.'){
-            if(isdigit(firstpilots[3])==0||isdigit(firstpilots[4])==0){
+        if(valid==1&&firstfares[2]!='.'){
+            if(isdigit(firstfares[3])==0||isdigit(firstfares[4])==0){
                 valid=0;
             }
         }
-        if(valid==1&&isdigit(firstpilots[2])!=0){
-            if(flighttime[3]!='.'||isdigit(firstpilots[4])==0||isdigit(firstpilots[5])==0){
+        if(valid==1&&isdigit(firstfares[2])!=0){
+            if(flighttime[3]!='.'||isdigit(firstfares[4])==0||isdigit(firstfares[5])==0){
                 valid=0;
             }
         }
@@ -927,21 +927,21 @@ void flightadd(){
     while (valid==1) {
         printf("BussinessseatClass pilots\n");
         printf("According  format: xxx.xx \n");
-        scanf("%s",bussinesspilots);
+        scanf("%s",bussinessfares);
         scanf("%c",&phantom);
-        if(isdigit(bussinesspilots[0])!=0&&isdigit(bussinesspilots[1])!=0){
+        if(isdigit(bussinessfares[0])!=0&&isdigit(bussinessfares[1])!=0){
             valid=0;
         }
-        if((isdigit(bussinesspilots[2])==0||bussinesspilots[2]!='.')&&valid==1){
+        if((isdigit(bussinessfares[2])==0||bussinessfares[2]!='.')&&valid==1){
             valid=1;
         }
-        if(valid==0&&bussinesspilots[2]!='.'){
-            if(isdigit(bussinesspilots[3])==0||isdigit(bussinesspilots[4])==0){
+        if(valid==0&&bussinessfares[2]!='.'){
+            if(isdigit(bussinessfares[3])==0||isdigit(bussinessfares[4])==0){
                 valid=1;
             }
         }
-        if(valid==0&&isdigit(bussinesspilots[2])!=0){
-            if(bussinesspilots[3]!='.'||isdigit(bussinesspilots[4])==0||isdigit(bussinesspilots[5])==0){
+        if(valid==0&&isdigit(bussinessfares[2])!=0){
+            if(bussinessfares[3]!='.'||isdigit(bussinessfares[4])==0||isdigit(bussinessfares[5])==0){
                 valid=1;
             }
         }
@@ -951,21 +951,21 @@ void flightadd(){
     }  while (valid==0) {
         printf("EconomyClass pilots\n");
         printf("According  format: xxx.xx \n");
-        scanf("%s",economypilots);
+        scanf("%s",economyfares);
         scanf("%c",&phantom);
-        if(isdigit(economypilots[0])!=0&&isdigit(economypilots[1])!=0){
+        if(isdigit(economyfares[0])!=0&&isdigit(economyfares[1])!=0){
             valid=1;
         }
-        if((isdigit(economypilots[2])==0||economypilots[2]!='.')&&valid==1){
+        if((isdigit(economyfares[2])==0||economyfares[2]!='.')&&valid==1){
             valid=0;
         }
-        if(valid==1&&economypilots[2]!='.'){
-            if(isdigit(economypilots[3])==0||isdigit(economypilots[4])==0){
+        if(valid==1&&economyfares[2]!='.'){
+            if(isdigit(economyfares[3])==0||isdigit(economyfares[4])==0){
                 valid=0;
             }
         }
-        if(valid==1&&isdigit(economypilots[2])!=0){
-            if(economypilots[3]!='.'||isdigit(economypilots[4])==0||isdigit(economypilots[5])==0){
+        if(valid==1&&isdigit(economyfares[2])!=0){
+            if(economyfares[3]!='.'||isdigit(economyfares[4])==0||isdigit(economyfares[5])==0){
                 valid=0;
             }
         }
@@ -973,7 +973,27 @@ void flightadd(){
             valid=0;
         }
     }
-    
+    while (valid==1) {
+        printf("Automatically\n");
+        printf("Choose Automatically or Manual （fill in the Flight remaining ticket）\n");
+        scanf("%s",automatically);
+        scanf("%c",&phantom);
+        if(strcmp(automatically,"Automatically")==0||strcmp(automatically,"Manual")==0){
+            valid=0;
+        }
+        if(valid==0&&phantom==' '){
+            valid=1;
+        }
+    }
+    if(strcmp(automatically,"Automatically")==0&&strcmp(landing,"large")==0){
+        votes=350;
+    }
+    if(strcmp(automatically,"Automatically")==0&&strcmp(landing,"medium")==0){
+        votes=200;
+    }
+    if(strcmp(automatically,"Automatically")==0&&strcmp(landing,"small")==0){
+        votes=100;
+    }
     strcat(Flightnumber, file);
     infile=fopen(Flightnumber,"a+" );
     if(infile==NULL){
