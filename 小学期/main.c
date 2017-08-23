@@ -11,7 +11,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <stdlib.h>
-
+#include <math.h>
 void registered();
 void personal();
 void administrator();
@@ -62,7 +62,7 @@ void registered(){
             scanf("%s",code);
             scanf("%c",&phantom);
             if(strcmp(code,"kingwang")==0){
-                   administrator();
+                administrator();
             }
             else{
                 printf("Invitation code error\n");
@@ -307,7 +307,7 @@ void administrator(){
             valid=0;
         }
     }
-
+    
     strcpy(IDF, IDA);
     strcat(IDF, file);
     infile=fopen(IDF,"a+" );
@@ -421,7 +421,7 @@ char * userIDverification(char * IDU){
         strcpy(passwold, pass);
         fclose(infile);
     }
-        return passwold;
+    return passwold;
 }
 
 
@@ -475,7 +475,7 @@ void userinterface(){
         {exit(1);}
     }
     
-
+    
 }
 
 
@@ -503,7 +503,7 @@ void administratorinterface(){
         {exit(1);}
     }
     
-
+    
 }
 
 
@@ -535,7 +535,7 @@ void flightinquiries(){
         else if(a[0]=='e')
         {exit(1);}
     }
-
+    
 }
 
 
@@ -558,7 +558,7 @@ void recommendation(){
         else if(a[0]=='c')
         {exit(1);}
     }
-
+    
 }
 
 
@@ -624,7 +624,7 @@ void ordermanagement(){
         else if(a[0]=='c')
         {exit(1);}
     }
-
+    
 }
 
 
@@ -647,7 +647,7 @@ void flightmanagement(){
         else if(a[0]=='c')
         {exit(1);}
     }
-
+    
 }
 
 
@@ -709,7 +709,7 @@ void flightadd(){
             }
         }
         fclose(infile);
-
+        
     }
     while (valid==1) {
         printf("Pilots A\n");
@@ -894,6 +894,14 @@ void flightadd(){
             valid=1;
         }
         if(valid==0&&phantom==' '){
+            valid=1;
+        }
+        if(valid==0&&abs(atoi(departuretime)-atoi(departuretimeb))<10){
+            printf("The pilot is flying, please re-enter the flight time\n");
+            valid=1;
+        }
+        if(valid==0&&abs(atoi(departuretime)-atoi(departuretimec))<10){
+            printf("The pilot is flying, please re-enter the flight time\n");
             valid=1;
         }
     }
