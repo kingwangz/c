@@ -286,8 +286,28 @@ void administrator(){
             valid=1;
         }
     }
-    printf("Airline\n");
-    scanf("%s",airline);
+    while (valid==0) {
+        printf("Airline\n");
+        printf("Currently supports the top ten airlines nationwide\n");
+        scanf("%s",airline);
+        scanf("%c",&phantom);
+        if (strcmp(airline,"CA")==0||strcmp(airline,"MU")==0||strcmp(airline,"CZ")==0) {
+            valid=1;
+        }
+        if (strcmp(airline,"HU")==0||strcmp(airline,"ZH")==0||strcmp(airline,"FM")==0) {
+            valid=1;
+        }
+        if (strcmp(airline,"MF")==0||strcmp(airline,"3U")==0||strcmp(airline,"SC")==0) {
+            valid=1;
+        }
+        if (strcmp(airline,"9C")==0) {
+            valid=1;
+        }
+        if(valid==1&&phantom==' '){
+            valid=0;
+        }
+    }
+
     strcpy(IDF, IDA);
     strcat(IDF, file);
     infile=fopen(IDF,"a+" );
@@ -678,8 +698,6 @@ void flightadd(){
             valid=0;
         }
     }
-    printf("Airline\n");
-    scanf("%s",airline);
     while (valid==1) {
         printf("Takeoff\n");
         printf("Requirements for domestic cities contain Airport\n");
@@ -934,7 +952,7 @@ void flightadd(){
             }
         }
         if(valid==1&&isdigit(firstfares[2])!=0){
-            if(flighttime[3]!='.'||isdigit(firstfares[4])==0||isdigit(firstfares[5])==0){
+            if(firstfares[3]!='.'||isdigit(firstfares[4])==0||isdigit(firstfares[5])==0){
                 valid=0;
             }
         }
@@ -950,7 +968,7 @@ void flightadd(){
         if(isdigit(bussinessfares[0])!=0&&isdigit(bussinessfares[1])!=0){
             valid=0;
         }
-        if(isdigit(bussinessfares[2])==0&&bussinessfares[2]!='.'&&valid==1){
+        if(isdigit(bussinessfares[2])==0&&bussinessfares[2]!='.'&&valid==0){
             valid=1;
         }
         if(valid==0&&bussinessfares[2]=='.'){
@@ -966,7 +984,8 @@ void flightadd(){
         if(valid==0&&phantom==' '){
             valid=1;
         }
-    }  while (valid==0) {
+    }
+    while (valid==0) {
         printf("EconomyClass pilots\n");
         printf("According  format: xxx.xx \n");
         scanf("%s",economyfares);
@@ -991,6 +1010,28 @@ void flightadd(){
             valid=0;
         }
     }
+    while (valid==1) {
+        printf("Airline\n");
+        printf("Currently supports the top ten airlines nationwide\n");
+        scanf("%s",airline);
+        scanf("%c",&phantom);
+        if (strcmp(airline,"CA")==0||strcmp(airline,"MU")==0||strcmp(airline,"CZ")==0) {
+            valid=0;
+        }
+        if (strcmp(airline,"HU")==0||strcmp(airline,"ZH")==0||strcmp(airline,"FM")==0) {
+            valid=0;
+        }
+        if (strcmp(airline,"MF")==0||strcmp(airline,"3U")==0||strcmp(airline,"SC")==0) {
+            valid=0;
+        }
+        if (strcmp(airline,"9C")==0) {
+            valid=0;
+        }
+        if(valid==0&&phantom==' '){
+            valid=1;
+        }
+    }
+    
     if(strcmp(modela,"large")==0){
         votes=360;
         for(int i=0;i<55;i++){
@@ -1054,5 +1095,5 @@ void flightadd(){
     }
     printf("Pilots\n");
     scanf("%s",pilots);
-   
+    
 }
