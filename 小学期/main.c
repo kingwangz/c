@@ -678,7 +678,7 @@ void multiplayerticketsn(){
 
 
 void flightadd(){
-    char Flightnumber[20],airline[15],takeoff[15],landing[15],departuretime[15],flighttime[15],firstseatnumber[55],bussinessseatnumber[55],economyseatnumber[55],modela[15],modelb[15],punctualityrate[15],pilotsa[15],pilotsb[15],firstfares[15],bussinessfares[15],economyfares[15],seat[55],determine[15],votes[15];
+    char Flightnumber[20],airline[15],takeoff[15],landing[15],departuretime[15],flighttime[15],firstseatnumber[55],bussinessseatnumber[55],economyseatnumber[55],modela[15],modelb[15],punctualityrate[15],pilotsa[15],pilotsb[15],firstfares[15],bussinessfares[15],economyfares[15],seat[55],determine[15],votes[15],Flightnumberb[20];
     int valid=0;
     char phantom;
     FILE *infile;
@@ -701,6 +701,15 @@ void flightadd(){
         if(valid==1&&phantom==' '){
             valid=0;
         }
+        infile=fopen("flight.txt","r");
+        while(fscanf(infile,"%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s",Flightnumberb,takeoff,landing,departuretime,flighttime,modela,modelb,punctualityrate,firstfares,bussinessfares,economyfares,airline,votes,pilotsa,pilotsb)!=EOF){
+            if(valid==1&&strcmp(Flightnumber, Flightnumberb)==0){
+                printf("Flight number already exists, please re-enter\n");
+                valid=0;
+            }
+        }
+        fclose(infile);
+
     }
     while (valid==1) {
         printf("Takeoff\n");
@@ -1130,7 +1139,7 @@ void flightadd(){
             valid=0;
         }
     }
-    if(strcmp(airline,"determine")==0){
+    if(strcmp(determine,"determine")==0){
         infile=fopen("flight.txt","a+");
         fprintf(infile,"%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s",Flightnumber,takeoff,landing,departuretime,flighttime,modela,modelb,punctualityrate,firstfares,bussinessfares,economyfares,airline,votes,pilotsa,pilotsb);
         fclose(infile);
