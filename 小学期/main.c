@@ -653,7 +653,15 @@ void flightmanagement(){
 
 
 void filter(){
-    
+     char Flightnumber[20],airline[15],takeoff[15],landing[15],departuretime[15],flighttime[15],modela[15],modelb[15],punctualityrate[15],pilotsa[15],pilotsb[15],firstfares[15],bussinessfares[15],economyfares[55],votes[15];
+    FILE *infile;
+    infile=fopen("flight.txt","a+");
+    if(infile==NULL){
+        printf("system error\n");
+        exit(1);
+    }
+    fscanf(infile,"%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s\n",Flightnumber,takeoff,landing,departuretime,flighttime,modela,modelb,punctualityrate,firstfares,bussinessfares,economyfares,airline,votes,pilotsa,pilotsb);
+    fclose(infile);
 }
 
 
@@ -702,6 +710,10 @@ void flightadd(){
             valid=0;
         }
         infile=fopen("flight.txt","r");
+        if(infile==NULL){
+            printf("system error\n");
+            exit(1);
+        }
         while(fscanf(infile,"%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s",Flightnumberb,takeoff,landing,departuretime,flighttime,modela,modelb,punctualityrate,firstfares,bussinessfares,economyfares,airline,votes,pilotsa,pilotsb)!=EOF){
             if(valid==1&&strcmp(Flightnumber, Flightnumberb)==0){
                 printf("Flight number already exists, please re-enter\n");
@@ -716,6 +728,10 @@ void flightadd(){
         scanf("%s",pilotsa);
         scanf("%c",&phantom);
         infile=fopen("flight.txt","r");
+        if(infile==NULL){
+            printf("system error\n");
+            exit(1);
+        }
         while(fscanf(infile,"%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s",Flightnumberb,takeoff,landing,departuretime,flighttime,modela,modelb,punctualityrate,firstfares,bussinessfares,economyfares,airline,votes,pilotsaa,pilotsbb)!=EOF){
             if(strcmp(pilotsbb, pilotsa)==0||strcmp(pilotsaa, pilotsa)==0){
                 strcpy(departuretimea, departuretime);
@@ -734,6 +750,10 @@ void flightadd(){
         scanf("%s",pilotsb);
         scanf("%c",&phantom);
         infile=fopen("flight.txt","r");
+        if(infile==NULL){
+            printf("system error\n");
+            exit(1);
+        }
         while(fscanf(infile,"%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s",Flightnumberb,takeoff,landing,departuretime,flighttime,modela,modelb,punctualityrate,firstfares,bussinessfares,economyfares,airline,votes,pilotsaa,pilotsbb)!=EOF){
             if(strcmp(pilotsbb, pilotsb)==0||strcmp(pilotsaa, pilotsb)==0){
                 strcpy(departuretimea, departuretime);
@@ -1193,6 +1213,10 @@ void flightadd(){
     }
     if(strcmp(determine,"determine")==0){
         infile=fopen("flight.txt","a+");
+        if(infile==NULL){
+            printf("system error\n");
+            exit(1);
+        }
         fprintf(infile,"%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s\n",Flightnumber,takeoff,landing,departuretime,flighttime,modela,modelb,punctualityrate,firstfares,bussinessfares,economyfares,airline,votes,pilotsa,pilotsb);
         fclose(infile);
     }
