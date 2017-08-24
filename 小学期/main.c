@@ -41,7 +41,7 @@ int main()
     //registered();
     //logins();
     //flightadd();
-    filters("HU",2,1);
+    filters("kk2222",3,4);
     return 0;
 }
 
@@ -511,10 +511,11 @@ void administratorinterface(){
 
 
 void flightinquiries(){
+    char model[20];
     char phantom;
     char a[2];
     while(1)
-    {
+    {   int valid=0;
         printf("(a)Model\n");
         printf("(b)Take off the city\n");
         printf("(c)Period\n");
@@ -523,8 +524,32 @@ void flightinquiries(){
         scanf("%s",a);
         scanf("%c",&phantom);
         if(a[0]=='a')
-        {
+        {   while (valid==0) {
+            printf("Please enter the required model \n");
+            scanf("%s",model);
+            scanf("%c",&phantom);
+            if(strcmp(model,"BY747")==0||strcmp(model,"BY767")==0|| strcmp(model,"BY777")==0){
+                valid=1;
+            }
+            if(valid==1&&phantom==' '){
+                valid=0;
+            }
         }
+            printf("(a)Filter by takeoff time\n");
+            printf("(b)Filter by economy fares\n");
+            printf("(c)Exit\n");
+            scanf("%s",a);
+            scanf("%c",&phantom);
+            if(a[0]=='a')
+            {filters(model, 1, 1);
+            }
+            else if(a[0]=='b')
+            {filters(model, 1, 2);
+            }
+            else if(a[0]=='c')
+            {exit(1);}
+        }
+        
         else if(a[0]=='b')
         {
         }
@@ -537,8 +562,9 @@ void flightinquiries(){
         else if(a[0]=='e')
         {exit(1);}
     }
-    
 }
+
+
 
 
 void recommendation(){
@@ -676,6 +702,10 @@ void filters(char * COM,int x,int y){
         if(x==3){
             strcpy(Comparisonb, takeoff);
         }
+        if(x==3){
+            strcpy(Comparisonb, Flightnumber);
+        }
+
         if(strcmp(Comparisonb,Comparison)==0){
             strcpy(Flightnumbera[k],Flightnumber);
             strcpy(airlinea[k],airline);
@@ -752,6 +782,13 @@ void filters(char * COM,int x,int y){
         }
         
     }
+    if(y==4){
+        for (int g=0; g<k; g++) {
+            printf("%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s\n",Flightnumbera[g],takeoffa[g],landinga[g],departuretimea[g],flighttimea[g],modelaa[g],modelba[g],punctualityratea[g],firstfaresa[g],bussinessfaresa[g],economyfaresa[g],airlinea[g],votesa[g],pilotsaa[g],pilotsba[g]);
+        }
+        
+    }
+
 
 }
 
