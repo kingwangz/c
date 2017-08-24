@@ -41,6 +41,7 @@ int main()
     //registered();
     //logins();
     //flightadd();
+    filters("HU",2,1);
     return 0;
 }
 
@@ -709,7 +710,7 @@ void filters(char * COM,int x,int y){
                 }
             }
         }
-        for (int g=0; g<7; g++) {
+        for (int g=0; g<k; g++) {
             printf("%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s\n",Flightnumbera[g],takeoffa[g],landinga[g],departuretimea[g],flighttimea[g],modelaa[g],modelba[g],punctualityratea[g],firstfaresa[g],bussinessfaresa[g],economyfaresa[g],airlinea[g],votesa[g],pilotsaa[g],pilotsba[g]);
         }
     }
@@ -717,7 +718,7 @@ void filters(char * COM,int x,int y){
         for(int i=0;i<k-1;i++) {
             o=i;
             for(int j=i+1;j<k;j++){
-                if(strcmp(economyfaresa[i],economyfaresa[j])>0){
+                if(atoi( economyfaresa[i])<atoi(economyfaresa[j])){
                     o=j;
                 }
                 if(i!=o){
@@ -727,12 +728,31 @@ void filters(char * COM,int x,int y){
                 }
             }
         }
-        for (int g=0; g<7; g++) {
+        for (int g=0; g<k; g++) {
             printf("%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s\n",Flightnumbera[g],takeoffa[g],landinga[g],departuretimea[g],flighttimea[g],modelaa[g],modelba[g],punctualityratea[g],firstfaresa[g],bussinessfaresa[g],economyfaresa[g],airlinea[g],votesa[g],pilotsaa[g],pilotsba[g]);
         }
         
     }
-    
+    if(y==3){
+        for(int i=0;i<k-1;i++) {
+            o=i;
+            for(int j=i+1;j<k;j++){
+                if(strcmp(landinga[i],landinga[j])>0){
+                    o=j;
+                }
+                if(i!=o){
+                    strcpy(temp, landinga[i]);
+                    strcpy(landinga[i], landinga[j]);
+                    strcpy(landinga[j], temp);
+                }
+            }
+        }
+        for (int g=0; g<k; g++) {
+            printf("%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s\n",Flightnumbera[g],takeoffa[g],landinga[g],departuretimea[g],flighttimea[g],modelaa[g],modelba[g],punctualityratea[g],firstfaresa[g],bussinessfaresa[g],economyfaresa[g],airlinea[g],votesa[g],pilotsaa[g],pilotsba[g]);
+        }
+        
+    }
+
 }
 
 void record(){
