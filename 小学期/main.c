@@ -680,10 +680,10 @@ void flightinquiries(){
             scanf("%s",a);
             scanf("%c",&phantom);
             if(a[0]=='a')
-            {filters(takeoff,landing,2, 1);
+            {filters(takeoff,landing,3, 1);
             }
             else if(a[0]=='b')
-            {filters(takeoff,landing, 2, 2);
+            {filters(takeoff,landing, 3, 2);
             }
             else if(a[0]=='c')
             {exit(1);}
@@ -862,7 +862,7 @@ void filters(char * COM,char * COMA,int x,int y){
             strcpy(votesa[k],votes);
             k++;
         }
-        if(strcmp(Comparisonb,Comparison)==0&&x==3&&strcmp(Comparisonc,Comparisond)){
+        if(strcmp(Comparisonb,Comparison)==0&&x==3&&strcmp(Comparisonc,Comparisond)==0){
             strcpy(Flightnumbera[k],Flightnumber);
             strcpy(airlinea[k],airline);
             strcpy(takeoffa[k],takeoff);
@@ -905,7 +905,7 @@ void filters(char * COM,char * COMA,int x,int y){
         for(int i=0;i<k-1;i++) {
             o=i;
             for(int j=i+1;j<k;j++){
-                if(atoi( economyfaresa[i])<atoi(economyfaresa[j])){
+                if(atoi(economyfaresa[i])<atoi(economyfaresa[j])){
                     o=j;
                 }
                 if(i!=o){
