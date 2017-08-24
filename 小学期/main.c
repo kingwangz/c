@@ -26,7 +26,7 @@ void flightinquiries();
 void recommendation();
 void userinformation();
 void tickets();
-void filters(char *,int,int);
+void filters(char *,char*,int,int);
 void record();
 void modification();
 void singleticket();
@@ -41,7 +41,7 @@ int main()
     //registered();
     //logins();
     //flightadd();
-    filters("kk2222",3,4);
+    flightinquiries();
     return 0;
 }
 
@@ -517,7 +517,7 @@ void flightinquiries(){
     while(1)
     {   int valid=0;
         printf("(a)Model\n");
-        printf("(b)Take off the city\n");
+        printf("(b)Take off the city and landing city\n");
         printf("(c)Period\n");
         printf("(d)Flight number\n");
         printf("(e)Exit\n");
@@ -531,6 +531,12 @@ void flightinquiries(){
             if(strcmp(model,"BY747")==0||strcmp(model,"BY767")==0|| strcmp(model,"BY777")==0){
                 valid=1;
             }
+            if(strcmp(model,"BY737")==0||strcmp(model,"BY738")==0|| strcmp(model,"TU5")==0){
+                valid=1;
+            }
+            if(strcmp(model,"YN7")==0||strcmp(model,"AN4")==0){
+                valid=1;
+            }
             if(valid==1&&phantom==' '){
                 valid=0;
             }
@@ -541,10 +547,10 @@ void flightinquiries(){
             scanf("%s",a);
             scanf("%c",&phantom);
             if(a[0]=='a')
-            {filters(model, 1, 1);
+            {filters(model,"",1, 1);
             }
             else if(a[0]=='b')
-            {filters(model, 1, 2);
+            {filters(model,"", 1, 2);
             }
             else if(a[0]=='c')
             {exit(1);}
@@ -552,6 +558,7 @@ void flightinquiries(){
         
         else if(a[0]=='b')
         {
+            
         }
         else if(a[0]=='c')
         {
@@ -680,10 +687,10 @@ void flightmanagement(){
 
 
 
-void filters(char * COM,int x,int y){
+void filters(char * COM,char * COMA,int x,int y){
     char Flightnumber[20],airline[15],takeoff[15],landing[15],departuretime[15],flighttime[15],modela[15],modelb[15],punctualityrate[15],pilotsa[15],pilotsb[15],firstfares[15],bussinessfares[15],economyfares[55],votes[15];
     char Flightnumbera[500][20],airlinea[500][15],takeoffa[500][15],landinga[500][15],departuretimea[500][15],flighttimea[500][15],modelaa[500][15],modelba[500][15],punctualityratea[500][15],pilotsaa[500][15],pilotsba[500][15],firstfaresa[500][15],bussinessfaresa[500][15],economyfaresa[500][55],votesa[500][15];
-    char Comparison[55],Comparisonb[55],temp[55];
+    char Comparison[55],Comparisonb[55],Comparisonc[55],Comparisond[55],temp[55];
     FILE *infile;
     int k=0,o;
     infile=fopen("flight.txt","r");
@@ -692,6 +699,7 @@ void filters(char * COM,int x,int y){
         exit(1);
     }
     strcpy(Comparison, COM);
+    strcpy(Comparisond, COMA);
     while(fscanf(infile,"%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s",Flightnumber,takeoff,landing,departuretime,flighttime,modela,modelb,punctualityrate,firstfares,bussinessfares,economyfares,airline,votes,pilotsa,pilotsb)!=EOF){
         if(x==1){
             strcpy(Comparisonb, modelb);
@@ -701,12 +709,13 @@ void filters(char * COM,int x,int y){
         }
         if(x==3){
             strcpy(Comparisonb, takeoff);
+            strcpy(Comparisonc, landing);
         }
-        if(x==3){
+        if(x==4){
             strcpy(Comparisonb, Flightnumber);
         }
 
-        if(strcmp(Comparisonb,Comparison)==0){
+        if(strcmp(Comparisonb,Comparison)==0&&(x==1||x==2||x==4)){
             strcpy(Flightnumbera[k],Flightnumber);
             strcpy(airlinea[k],airline);
             strcpy(takeoffa[k],takeoff);
@@ -724,6 +733,25 @@ void filters(char * COM,int x,int y){
             strcpy(votesa[k],votes);
             k++;
         }
+        if(strcmp(Comparisonb,Comparison)==0&&x==3&&strcmp(Comparisonc,Comparisond)){
+            strcpy(Flightnumbera[k],Flightnumber);
+            strcpy(airlinea[k],airline);
+            strcpy(takeoffa[k],takeoff);
+            strcpy(landinga[k],landing);
+            strcpy(departuretimea[k],departuretime);
+            strcpy(flighttimea[k],flighttime);
+            strcpy(modelaa[k],modela);
+            strcpy(modelba[k],modelb);
+            strcpy(punctualityratea[k],punctualityrate);
+            strcpy(pilotsaa[k],pilotsa);
+            strcpy(pilotsba[k],pilotsb);
+            strcpy(firstfaresa[k],firstfares);
+            strcpy(bussinessfaresa[k],bussinessfares);
+            strcpy(economyfaresa[k],economyfares);
+            strcpy(votesa[k],votes);
+            k++;
+        }
+
     }
     fclose(infile);
     if(y==1){
