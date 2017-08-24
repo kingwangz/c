@@ -654,13 +654,16 @@ void flightmanagement(){
 
 void filter(){
      char Flightnumber[20],airline[15],takeoff[15],landing[15],departuretime[15],flighttime[15],modela[15],modelb[15],punctualityrate[15],pilotsa[15],pilotsb[15],firstfares[15],bussinessfares[15],economyfares[55],votes[15];
+    char Flightnumbera[500][20],airlinea[500][15],takeoffa[500][15],landinga[500][15],departuretimea[500][15],flighttimea[500][15],modelaa[500][15],modelba[500][15],punctualityratea[500][15],pilotsaa[500][15],pilotsba[500][15],firstfaresa[500][15],bussinessfaresa[500][15],economyfaresa[500][55],votesa[500][15];
     FILE *infile;
     infile=fopen("flight.txt","a+");
     if(infile==NULL){
         printf("system error\n");
         exit(1);
     }
-    fscanf(infile,"%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s\n",Flightnumber,takeoff,landing,departuretime,flighttime,modela,modelb,punctualityrate,firstfares,bussinessfares,economyfares,airline,votes,pilotsa,pilotsb);
+    while(fscanf(infile,"%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s",Flightnumber,takeoff,landing,departuretime,flighttime,modela,modelb,punctualityrate,firstfares,bussinessfares,economyfares,airline,votes,pilotsa,pilotsb)!=EOF){
+        
+    }
     fclose(infile);
 }
 
