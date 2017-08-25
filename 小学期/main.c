@@ -819,9 +819,9 @@ void flightmanagement(){
 void filters(char * COM,char * COMA,int x,int y){
     char Flightnumber[20],airline[15],takeoff[15],landing[15],departuretime[15],flighttime[15],modela[15],modelb[15],punctualityrate[15],pilotsa[15],pilotsb[15],firstfares[15],bussinessfares[15],economyfares[55],votes[15];
     char Flightnumbera[500][20],airlinea[500][15],takeoffa[500][15],landinga[500][15],departuretimea[500][15],flighttimea[500][15],modelaa[500][15],modelba[500][15],punctualityratea[500][15],pilotsaa[500][15],pilotsba[500][15],firstfaresa[500][15],bussinessfaresa[500][15],economyfaresa[500][55],votesa[500][15];
-    char Comparison[55],Comparisonb[55],Comparisonc[55],Comparisond[55],temp[55];
+    char Comparison[55],Comparisonb[55],Comparisonc[55],Comparisond[55],tempa[55],tempb[55],tempc[55],tempd[55],tempe[55],tempf[55],tempg[55],temph[55],tempi[55],tempj[55],tempk[55],templ[55],tempm[55],tempn[55],tempo[55];
     FILE *infile;
-    int k=0,o;
+    int k=0;
     infile=fopen("flight.txt","r");
     if(infile==NULL){
         printf("system error\n");
@@ -843,7 +843,7 @@ void filters(char * COM,char * COMA,int x,int y){
         if(x==4){
             strcpy(Comparisonb, Flightnumber);
         }
-
+        
         if(strcmp(Comparisonb,Comparison)==0&&(x==1||x==2||x==4)){
             strcpy(Flightnumbera[k],Flightnumber);
             strcpy(airlinea[k],airline);
@@ -880,20 +880,63 @@ void filters(char * COM,char * COMA,int x,int y){
             strcpy(votesa[k],votes);
             k++;
         }
-
+        
     }
     fclose(infile);
     if(y==1){
         for(int i=0;i<k-1;i++) {
-            o=i;
+            
             for(int j=i+1;j<k;j++){
                 if(strcmp(departuretimea[i],departuretimea[j])>0){
-                    o=j;
-                }
-                if(i!=o){
-                    strcpy(temp, departuretimea[i]);
+                    
+                    strcpy(tempa, Flightnumbera[i]);
+                    strcpy(tempb, airlinea[i]);
+                    strcpy(tempc, takeoffa[i]);
+                    strcpy(tempd, landinga[i]);
+                    strcpy(tempe, departuretimea[i]);
+                    strcpy(tempf, flighttimea[i]);
+                    strcpy(tempg, modelaa[i]);
+                    strcpy(temph, modelba[i]);
+                    strcpy(tempi, punctualityratea[i]);
+                    strcpy(tempj, pilotsaa[i]);
+                    strcpy(tempk, pilotsba[i]);
+                    strcpy(templ, firstfaresa[i]);
+                    strcpy(tempm, bussinessfaresa[i]);
+                    strcpy(tempn, economyfaresa[i]);
+                    strcpy(tempo, votesa[i]);
+                    
+                    strcpy(Flightnumbera[i], Flightnumbera[j]);
+                    strcpy(airlinea[i], airlinea[j]);
+                    strcpy(takeoffa[i], takeoffa[j]);
+                    strcpy(landinga[i], landinga[j]);
                     strcpy(departuretimea[i], departuretimea[j]);
-                    strcpy(departuretimea[j], temp);
+                    strcpy(flighttimea[i], flighttimea[j]);
+                    strcpy(modelaa[i], modelaa[j]);
+                    strcpy(modelba[i], modelba[j]);
+                    strcpy(punctualityratea[i], punctualityratea[j]);
+                    strcpy(pilotsaa[i], pilotsaa[j]);
+                    strcpy(firstfaresa[i], firstfaresa[j]);
+                    strcpy(bussinessfaresa[i], bussinessfaresa[j]);
+                    strcpy(economyfaresa[i], economyfaresa[j]);
+                    strcpy(votesa[i], votesa[j]);
+                    strcpy(pilotsba[i], pilotsba[j]);
+                    
+                    strcpy(Flightnumbera[j], tempa);
+                    strcpy(airlinea[j], tempb);
+                    strcpy(takeoffa[j], tempc);
+                    strcpy(landinga[j], tempd);
+                    strcpy(departuretimea[j], tempe);
+                    strcpy(flighttimea[j], tempf);
+                    strcpy(modelaa[j], tempg);
+                    strcpy(modelba[j], temph);
+                    strcpy(punctualityratea[j], tempi);
+                    strcpy(pilotsaa[j], tempj);
+                    strcpy(pilotsba[j], tempk);
+                    strcpy(firstfaresa[j], templ);
+                    strcpy(bussinessfaresa[j], tempm);
+                    strcpy(economyfaresa[j], tempn);
+                    strcpy(votesa[j], tempo);
+                    
                 }
             }
         }
@@ -903,15 +946,58 @@ void filters(char * COM,char * COMA,int x,int y){
     }
     if(y==2){
         for(int i=0;i<k-1;i++) {
-            o=i;
+            
             for(int j=i+1;j<k;j++){
                 if(atoi(economyfaresa[i])<atoi(economyfaresa[j])){
-                    o=j;
-                }
-                if(i!=o){
-                    strcpy(temp, economyfaresa[i]);
+                    
+                    strcpy(tempa, Flightnumbera[i]);
+                    strcpy(tempb, airlinea[i]);
+                    strcpy(tempc, takeoffa[i]);
+                    strcpy(tempd, landinga[i]);
+                    strcpy(tempe, departuretimea[i]);
+                    strcpy(tempf, flighttimea[i]);
+                    strcpy(tempg, modelaa[i]);
+                    strcpy(temph, modelba[i]);
+                    strcpy(tempi, punctualityratea[i]);
+                    strcpy(tempj, pilotsaa[i]);
+                    strcpy(tempk, pilotsba[i]);
+                    strcpy(templ, firstfaresa[i]);
+                    strcpy(tempm, bussinessfaresa[i]);
+                    strcpy(tempn, economyfaresa[i]);
+                    strcpy(tempo, votesa[i]);
+                    
+                    strcpy(Flightnumbera[i], Flightnumbera[j]);
+                    strcpy(airlinea[i], airlinea[j]);
+                    strcpy(takeoffa[i], takeoffa[j]);
+                    strcpy(landinga[i], landinga[j]);
+                    strcpy(departuretimea[i], departuretimea[j]);
+                    strcpy(flighttimea[i], flighttimea[j]);
+                    strcpy(modelaa[i], modelaa[j]);
+                    strcpy(modelba[i], modelba[j]);
+                    strcpy(punctualityratea[i], punctualityratea[j]);
+                    strcpy(pilotsaa[i], pilotsaa[j]);
+                    strcpy(firstfaresa[i], firstfaresa[j]);
+                    strcpy(bussinessfaresa[i], bussinessfaresa[j]);
                     strcpy(economyfaresa[i], economyfaresa[j]);
-                    strcpy(economyfaresa[j], temp);
+                    strcpy(votesa[i], votesa[j]);
+                    strcpy(pilotsba[i], pilotsba[j]);
+                    
+                    strcpy(Flightnumbera[j], tempa);
+                    strcpy(airlinea[j], tempb);
+                    strcpy(takeoffa[j], tempc);
+                    strcpy(landinga[j], tempd);
+                    strcpy(departuretimea[j], tempe);
+                    strcpy(flighttimea[j], tempf);
+                    strcpy(modelaa[j], tempg);
+                    strcpy(modelba[j], temph);
+                    strcpy(punctualityratea[j], tempi);
+                    strcpy(pilotsaa[j], tempj);
+                    strcpy(pilotsba[j], tempk);
+                    strcpy(firstfaresa[j], templ);
+                    strcpy(bussinessfaresa[j], tempm);
+                    strcpy(economyfaresa[j], tempn);
+                    strcpy(votesa[j], tempo);
+                    
                 }
             }
         }
@@ -922,15 +1008,57 @@ void filters(char * COM,char * COMA,int x,int y){
     }
     if(y==3){
         for(int i=0;i<k-1;i++) {
-            o=i;
+            
             for(int j=i+1;j<k;j++){
                 if(strcmp(landinga[i],landinga[j])>0){
-                    o=j;
-                }
-                if(i!=o){
-                    strcpy(temp, landinga[i]);
+                    
+                    strcpy(tempa, Flightnumbera[i]);
+                    strcpy(tempb, airlinea[i]);
+                    strcpy(tempc, takeoffa[i]);
+                    strcpy(tempd, landinga[i]);
+                    strcpy(tempe, departuretimea[i]);
+                    strcpy(tempf, flighttimea[i]);
+                    strcpy(tempg, modelaa[i]);
+                    strcpy(temph, modelba[i]);
+                    strcpy(tempi, punctualityratea[i]);
+                    strcpy(tempj, pilotsaa[i]);
+                    strcpy(tempk, pilotsba[i]);
+                    strcpy(templ, firstfaresa[i]);
+                    strcpy(tempm, bussinessfaresa[i]);
+                    strcpy(tempn, economyfaresa[i]);
+                    strcpy(tempo, votesa[i]);
+                    
+                    strcpy(Flightnumbera[i], Flightnumbera[j]);
+                    strcpy(airlinea[i], airlinea[j]);
+                    strcpy(takeoffa[i], takeoffa[j]);
                     strcpy(landinga[i], landinga[j]);
-                    strcpy(landinga[j], temp);
+                    strcpy(departuretimea[i], departuretimea[j]);
+                    strcpy(flighttimea[i], flighttimea[j]);
+                    strcpy(modelaa[i], modelaa[j]);
+                    strcpy(modelba[i], modelba[j]);
+                    strcpy(punctualityratea[i], punctualityratea[j]);
+                    strcpy(pilotsaa[i], pilotsaa[j]);
+                    strcpy(firstfaresa[i], firstfaresa[j]);
+                    strcpy(bussinessfaresa[i], bussinessfaresa[j]);
+                    strcpy(economyfaresa[i], economyfaresa[j]);
+                    strcpy(votesa[i], votesa[j]);
+                    strcpy(pilotsba[i], pilotsba[j]);
+                    
+                    strcpy(Flightnumbera[j], tempa);
+                    strcpy(airlinea[j], tempb);
+                    strcpy(takeoffa[j], tempc);
+                    strcpy(landinga[j], tempd);
+                    strcpy(departuretimea[j], tempe);
+                    strcpy(flighttimea[j], tempf);
+                    strcpy(modelaa[j], tempg);
+                    strcpy(modelba[j], temph);
+                    strcpy(punctualityratea[j], tempi);
+                    strcpy(pilotsaa[j], tempj);
+                    strcpy(pilotsba[j], tempk);
+                    strcpy(firstfaresa[j], templ);
+                    strcpy(bussinessfaresa[j], tempm);
+                    strcpy(economyfaresa[j], tempn);
+                    strcpy(votesa[j], tempo);
                 }
             }
         }
@@ -945,8 +1073,8 @@ void filters(char * COM,char * COMA,int x,int y){
         }
         
     }
-
-
+    
+    
 }
 
 void record(){
